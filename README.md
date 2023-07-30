@@ -15,7 +15,7 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 - run tests with browser GUI:
 'npx playwright test --headed'
 
-## Updating PLaywright
+## Updating Playwright
 - check if Playwright should be updated:
 'npm outdated @playwright/test'
 - update Playwright:
