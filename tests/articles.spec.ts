@@ -5,13 +5,13 @@ import { regularUserData } from "../testdata/user.data";
 import { NavigationPage } from "../pages/navigation.page";
 import { Utility } from "../pages/utility.page";
 import { WelcomePage } from "../pages/welcome.page";
-import { MyProfilePage } from "../pages/myProfile.page";
-import { EditMyProfilePage } from "../pages/editMyProfil.page";
+import { MyProfilePage } from "../pages/profile/myProfile.page";
+import { EditMyProfilePage } from "../pages/profile/editMyProfil.page";
 import { editUserData } from "../testdata/user.data";
 import { newArticleData } from "../testdata/articles.data";
-import { ArticlesPage } from "../pages/articles.page";
-import { AddArticlesPage } from "../pages/addArticleForm.page";
-import { ArticleProfilPage } from "../pages/articleProfile.page";
+import { ArticlesPage } from "../pages/articles/articles.page";
+import { AddArticlesPage } from "../pages/articles/addArticleForm.page";
+import { ArticleProfilPage } from "../pages/articles/articleProfile.page";
 
 test.describe("Articles tests", () => {
   let registerPage: RegisterPage;

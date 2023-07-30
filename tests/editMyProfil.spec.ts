@@ -5,11 +5,11 @@ import { regularUserData } from "../testdata/user.data";
 import { NavigationPage } from "../pages/navigation.page";
 import { Utility } from "../pages/utility.page";
 import { WelcomePage } from "../pages/welcome.page";
-import { MyProfilePage } from "../pages/myProfile.page";
-import { EditMyProfilePage } from "../pages/editMyProfil.page";
+import { MyProfilePage } from "../pages/profile/myProfile.page";
+import { EditMyProfilePage } from "../pages/profile/editMyProfil.page";
 import { editUserData } from "../testdata/user.data";
 
-test.describe.only("Edit my profil tests", () => {
+test.describe("Edit my profil tests", () => {
   let registerPage: RegisterPage;
   let loginPage: LoginPage;
   let navigationPage: NavigationPage;
