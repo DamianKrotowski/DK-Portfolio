@@ -59,6 +59,5 @@ test.describe("Articles tests", () => {
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
     await expect(articleProfilPage.titleValue).toHaveText(title);
     await expect(articleProfilPage.bodyValue).toHaveText(newArticleData.body);
-    await page.pause()
   });
 });

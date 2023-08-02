@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tests:api": "playwright test --config=api.config.ts --project=Chromium",
+    "tests:gui": "npx playwright test --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.36.2",
     "prettier": "3.0.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
   }
 }

@@ -6,6 +6,7 @@ export const regularUserData = {
   email: "email@gmail.com",
   birthDate: "1995-10-17",
   password: "Hasło1234!@#$",
+  avatar: '9acce450-ca01-4050-bc4a-19e9b17b4cfa.jpg',
 };
 
 export const blankUserData = {

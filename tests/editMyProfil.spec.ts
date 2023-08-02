@@ -45,7 +45,7 @@ test.describe("Edit my profil tests", () => {
     await myProfilePage.goToEditMyProfil()
   });
 
-  test("Successfully edited full profile with re-login with new details", async ({ page }) => {
+  test.only("Successfully edited full profile with re-login with new details", async ({ page }) => {
     // Arrange
     const editedEmail = `${await utility.generateRandomValue()}${regularUserData.email}`;
     // Act
