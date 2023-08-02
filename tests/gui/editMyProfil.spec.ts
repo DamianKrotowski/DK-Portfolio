@@ -1,13 +1,13 @@
 import { test, expect } from "@playwright/test";
-import { RegisterPage } from "../pages/register.page";
-import { LoginPage } from "../pages/login.page";
-import { regularUserData } from "../testdata/user.data";
-import { NavigationPage } from "../pages/navigation.page";
-import { Utility } from "../pages/utility.page";
-import { WelcomePage } from "../pages/welcome.page";
-import { MyProfilePage } from "../pages/profile/myProfile.page";
-import { EditMyProfilePage } from "../pages/profile/editMyProfil.page";
-import { editUserData } from "../testdata/user.data";
+import { RegisterPage } from "../../pages/register.page";
+import { LoginPage } from "../../pages/login.page";
+import { regularUserData } from "../../testdata/user.data";
+import { NavigationPage } from "../../pages/navigation.page";
+import { Utility } from "../../pages/utility.page";
+import { WelcomePage } from "../../pages/welcome.page";
+import { MyProfilePage } from "../../pages/profile/myProfile.page";
+import { EditMyProfilePage } from "../../pages/profile/editMyProfil.page";
+import { editUserData } from "../../testdata/user.data";
 
 test.describe("Edit my profil tests", () => {
   let registerPage: RegisterPage;
@@ -39,9 +39,12 @@ test.describe("Edit my profil tests", () => {
       regularUserData.birthDate,
       regularUserData.password
     );
-    await expect(loginPage.loginButton).toBeVisible();
+    await expect(loginPage.loginButton).toBeVisible({timeout: 30000});
+
     await loginPage.login(email, regularUserData.password);
+    await expect(welcomePage.myProfilButton).toBeVisible();
     await welcomePage.goToMyProfil()
+    await expect(myProfilePage.firstNameValue).toBeVisible();
     await myProfilePage.goToEditMyProfil()
   });
 

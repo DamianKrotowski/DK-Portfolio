@@ -1,17 +1,17 @@
 import { test, expect } from "@playwright/test";
-import { RegisterPage } from "../pages/register.page";
-import { LoginPage } from "../pages/login.page";
-import { regularUserData } from "../testdata/user.data";
-import { NavigationPage } from "../pages/navigation.page";
-import { Utility } from "../pages/utility.page";
-import { WelcomePage } from "../pages/welcome.page";
-import { MyProfilePage } from "../pages/profile/myProfile.page";
-import { EditMyProfilePage } from "../pages/profile/editMyProfil.page";
-import { editUserData } from "../testdata/user.data";
-import { newArticleData } from "../testdata/articles.data";
-import { ArticlesPage } from "../pages/articles/articles.page";
-import { AddArticlesPage } from "../pages/articles/addArticleForm.page";
-import { ArticleProfilPage } from "../pages/articles/articleProfile.page";
+import { RegisterPage } from "../../pages/register.page";
+import { LoginPage } from "../../pages/login.page";
+import { regularUserData } from "../../testdata/user.data";
+import { NavigationPage } from "../../pages/navigation.page";
+import { Utility } from "../../pages/utility.page";
+import { WelcomePage } from "../../pages/welcome.page";
+import { MyProfilePage } from "../../pages/profile/myProfile.page";
+import { EditMyProfilePage } from "../../pages/profile/editMyProfil.page";
+import { editUserData } from "../../testdata/user.data";
+import { newArticleData } from "../../testdata/articles.data";
+import { ArticlesPage } from "../../pages/articles/articles.page";
+import { AddArticlesPage } from "../../pages/articles/addArticleForm.page";
+import { ArticleProfilPage } from "../../pages/articles/articleProfile.page";
 
 test.describe("Articles tests", () => {
   let registerPage: RegisterPage;
@@ -59,6 +59,5 @@ test.describe("Articles tests", () => {
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
     await expect(articleProfilPage.titleValue).toHaveText(title);
     await expect(articleProfilPage.bodyValue).toHaveText(newArticleData.body);
-    await page.pause()
   });
 });
