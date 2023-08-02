@@ -14,6 +14,9 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 'npx playwright test'
 - run tests with browser GUI:
 'npx playwright test --headed'
+-Scripts
+- run tests without browser GUI:
+'npm run tests:gui'
 - run api tests:
 'npm run tests:api'
 

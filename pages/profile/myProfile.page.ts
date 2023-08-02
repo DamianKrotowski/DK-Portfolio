@@ -3,7 +3,6 @@ import { Page } from "@playwright/test";
 export class MyProfilePage {
   constructor(private page: Page) {}
 
-  // editButton = this.page.locator('.card-wrapper .controls i:nth-child(1)');
   editButton = this.page.locator('.fas.fa-edit.edit');
   firstNameValue = this.page.getByTestId('firstname');
   lastNameValue = this.page.getByTestId('lastname');

@@ -7,7 +7,6 @@ import { Utility } from "../../pages/utility.page";
 import { WelcomePage } from "../../pages/welcome.page";
 import { MyProfilePage } from "../../pages/profile/myProfile.page";
 import { EditMyProfilePage } from "../../pages/profile/editMyProfil.page";
-import { editUserData } from "../../testdata/user.data";
 import { newArticleData } from "../../testdata/articles.data";
 import { ArticlesPage } from "../../pages/articles/articles.page";
 import { AddArticlesPage } from "../../pages/articles/addArticleForm.page";
