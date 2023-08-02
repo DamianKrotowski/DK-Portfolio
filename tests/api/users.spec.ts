@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { v4 as uuidv4 } from "uuid";
 import { Utility } from "../../pages/utility.page";
-import { regularUserData } from "../../testdata/user.data";
+import { regularUserData, updatedUserData } from "../../testdata/user.data";
 
 test.describe("API Testing - User CRUD ", () => {
   const baseUrl = "https://groovy-chartreuse-ocelot.glitch.me/api";
@@ -26,13 +26,17 @@ test.describe("API Testing - User CRUD ", () => {
   });
 
   test("GET Request - Reading user data", async ({ request }) => {
-    const response = await request.get(`${baseUrl}/users/${userId}`);
+    const response = await request.get(`${baseUrl}/users/${userId}`,{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     expect(response.status()).toBe(200);
     const responseBody = JSON.parse(await response.text());
-    expect(responseBody.email).toBeTruthy()
+    expect(responseBody.email).toBeTruthy();
     expect(responseBody.firstname).toBe(regularUserData.firstName)
-    expect(responseBody.lastname).toBeTruthy()
-    expect(responseBody.password).toBeTruthy()
+    expect(responseBody.lastname).toBeTruthy();
+    expect(responseBody.password).toBeTruthy();
     expect(responseBody.avatar).toBe(regularUserData.avatar)
   });
 
@@ -47,6 +51,29 @@ test.describe("API Testing - User CRUD ", () => {
     token = responseBody.access_token; // Store the created user's ID
     expect(response.status()).toBe(200);
     expect(responseBody.access_token).toBeTruthy();
+  });
+
+  
+  test("PUT Request - Create user ", async ({ request }) => {
+    const response = await request.put(`${baseUrl}/users/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data: {
+        email: email,
+        firstname: updatedUserData.firstName,
+        lastname: updatedUserData.lastName,
+        password: updatedUserData.password,
+        avatar: updatedUserData.avatar,
+      },
+    });
+    const responseBody = JSON.parse(await response.text());
+    expect(responseBody.email).toBe(email)
+    expect(responseBody.firstname).toBe(updatedUserData.firstName)
+    expect(responseBody.lastname).toBe(updatedUserData.lastName)
+    expect(responseBody.password).toBe(updatedUserData.password)
+    expect(responseBody.avatar).toBe(updatedUserData.avatar)
+    expect(response.status()).toBe(200);
   });
 
   test("DELETE Request - Delete User", async ({ request }) => {

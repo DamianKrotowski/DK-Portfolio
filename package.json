@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "tests:api": "playwright test --config=api.config.ts --project=Chromium",
-    "tests:gui": "npx playwright test --headed"
+    "tests:gui": "npx playwright test",
+    "tests:gui:headed": "npx playwright test --headed"
   },
   "keywords": [],
   "author": "",
