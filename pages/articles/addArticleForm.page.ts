@@ -1,6 +1,4 @@
 import { Page } from "@playwright/test";
-import { newArticleData } from "../../testdata/articles.data";
-import { Utility } from "../utility.page";
 
 export class AddArticlesPage {
   constructor(private page: Page) {}

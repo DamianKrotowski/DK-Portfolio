@@ -14,7 +14,7 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 'npx playwright test'
 - run tests with browser GUI:
 'npx playwright test --headed'
--Scripts
+- Scripts
 - run tests without browser GUI:
 'npm run tests:gui'
 - run api tests:
@@ -34,7 +34,8 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 
 - config file 'playwright.config.ts'
 - disable browser, i.e. Firefox
-'''javascript
+'''
+javascript
 <!-- {
     name: 'firefox',
     use {
@@ -43,13 +44,15 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 }, -->
 '''
 - enable video on fail
-'''javascript
+'''
+javascript
 use: {
     video: { 'retain-on-failure'},
 },
 '''
 - enable Trace Viewer on fail
-'''javascript
+'''
+javascript
 use: {
     trace: { 'retain-on-failure'},
 },
