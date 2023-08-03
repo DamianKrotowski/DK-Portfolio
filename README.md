@@ -1,9 +1,6 @@
 # Introduction 
 This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 
-# About tests
-
-
 ## Commands
 
 - check 'NodeJS' version:
@@ -34,65 +31,13 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 
 - config file 'playwright.config.ts'
 - disable browser, i.e. Firefox
-'''
-javascript
-<!-- {
-    name: 'firefox',
-    use {
-        ...devices['Desktop Firefox'],
-    },
-}, -->
-'''
 - enable video on fail
-'''
-javascript
-use: {
-    video: { 'retain-on-failure'},
-},
-'''
 - enable Trace Viewer on fail
-'''
-javascript
-use: {
-    trace: { 'retain-on-failure'},
-},
-'''
-
-### Playwright snippets
-
-- import:
-'''typescript
-import { test, expect } from @playwright/test';
-'''
-- test:
-'''typescript
-test('test description', async ({page }) => {
-    <!-- your code -->
-});
-- describe:
-'''typescript
-test.describe('Group description', () => {
-    <!-- your code -->
-});
-- hook beforeEach:
-'''typescript
-test.beforeEach(async ({page }) => {
-    <!-- your code -->
-});
-- running given test: 'test.only'
 
 ### Prettier
 
 - install Prettier
 'npm install --save-dev --save-exxact prettier'
-- configure Prettier
-    - exlude files in '.priettierignore'
-    '''
-    {
-        "singleQuote": true,
-        "endofLine": "auto"
-    }
-    '''
 - run Prettier:
 'npx prettier --write .'
 - additionaly you can install VSC extension: **Prettier**
