@@ -17,7 +17,7 @@ test.describe("API Testing - CRUD Articles", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    token = responseBody.access_token; // Store the created user's ID
+    token = responseBody.access_token; 
     expect(response.status()).toBe(200);
     expect(responseBody.access_token).toBe(token);
   });
@@ -25,7 +25,7 @@ test.describe("API Testing - CRUD Articles", () => {
   test("POST Request - Add Article ", async ({ request }) => {
     const response = await request.post(`${baseUrl}/articles`, {
       headers: {
-        Authorization: `Bearer ${token}`, // Pass the access token in the headers
+        Authorization: `Bearer ${token}`, 
       },
       data: {
         user_id: 138,
@@ -36,7 +36,7 @@ test.describe("API Testing - CRUD Articles", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    articleId = responseBody.id; // Store the created user's ID
+    articleId = responseBody.id; 
     expect(response.status()).toBe(201);
   });
 

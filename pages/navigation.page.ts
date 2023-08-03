@@ -1,5 +1,4 @@
 import { Page } from "@playwright/test";
-// import { loginData } from '../testdata/login.data';
 
 export class NavigationPage {
   constructor(private page: Page) {}

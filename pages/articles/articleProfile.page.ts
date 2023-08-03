@@ -9,7 +9,7 @@ export class ArticleProfilPage {
   bodyValue = this.page.getByTestId('article-body');
 
   async setTitle(title: string): Promise<void> {
-    //
+    
   }
 
 }

@@ -21,7 +21,7 @@ test.describe("API Testing - User CRUD ", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    userId = responseBody.id; // Store the created user's ID
+    userId = responseBody.id; 
     expect(response.status()).toBe(201);
   });
 
@@ -48,7 +48,7 @@ test.describe("API Testing - User CRUD ", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    token = responseBody.access_token; // Store the created user's ID
+    token = responseBody.access_token; 
     expect(response.status()).toBe(200);
     expect(responseBody.access_token).toBeTruthy();
   });
