@@ -42,3 +42,8 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 'npx prettier --write .'
 - additionaly you can install VSC extension: **Prettier**
     - and set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
+
+### Dotenv
+
+- install Dotenv
+'npm i -D dotenv'
