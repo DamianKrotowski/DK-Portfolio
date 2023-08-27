@@ -1,16 +1,18 @@
-import { Page } from "@playwright/test";
+import { Page } from '@playwright/test';
 
 export class NavigationPage {
   constructor(private page: Page) {}
 
-  userIconButton = this.page.getByTestId("btn-dropdown");
-  registerButton = this.page.getByRole("link", { name: "Register" });
-  loginButton = this.page.getByRole("link", { name: "Login" });
-  logoutButton = this.page.getByTestId("user-dropdown").getByRole("link", { name: "Logout" });
-  articlesButton = this.page.getByTestId("open-articles");
-  commentsButton = this.page.getByTestId("open-comments");
-  usersButton = this.page.getByTestId("open-users");
-  statisticsButton = this.page.getByTestId("open-stats");
+  userIconButton = this.page.getByTestId('btn-dropdown');
+  registerButton = this.page.getByRole('link', { name: 'Register' });
+  loginButton = this.page.getByRole('link', { name: 'Login' });
+  logoutButton = this.page
+    .getByTestId('user-dropdown')
+    .getByRole('link', { name: 'Logout' });
+  articlesButton = this.page.getByTestId('open-articles');
+  commentsButton = this.page.getByTestId('open-comments');
+  usersButton = this.page.getByTestId('open-users');
+  statisticsButton = this.page.getByTestId('open-stats');
 
   async goToRegister(): Promise<void> {
     await this.userIconButton.click();

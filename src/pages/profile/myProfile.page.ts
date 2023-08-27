@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page } from '@playwright/test';
 
 export class MyProfilePage {
   constructor(private page: Page) {}
@@ -8,8 +8,7 @@ export class MyProfilePage {
   lastNameValue = this.page.getByTestId('lastname');
   emailValue = this.page.getByTestId('email');
 
-
-  myProfilButton = this.page.getByRole("button", { name: "My profile" });
+  myProfilButton = this.page.getByRole('button', { name: 'My profile' });
 
   async goToEditMyProfil(): Promise<void> {
     await this.editButton.click();
