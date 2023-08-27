@@ -1,18 +1,18 @@
-import { test, expect } from "@playwright/test";
-import { RegisterPage } from "../../src/pages/register.page";
-import { LoginPage } from "../../src/pages/login.page";
-import { regularUserData } from "../../src/testdata/user.data";
-import { NavigationPage } from "../../src/pages/navigation.page";
-import { Utility } from "../../src/pages/utility.page";
-import { WelcomePage } from "../../src/pages/welcome.page";
-import { MyProfilePage } from "../../src/pages/profile/myProfile.page";
-import { EditMyProfilePage } from "../../src/pages/profile/editMyProfil.page";
-import { newArticleData } from "../../src/testdata/articles.data";
-import { ArticlesPage } from "../../src/pages/articles/articles.page";
-import { AddArticlesPage } from "../../src/pages/articles/addArticleForm.page";
-import { ArticleProfilPage } from "../../src/pages/articles/articleProfile.page";
+import { test, expect } from '@playwright/test';
+import { RegisterPage } from '../../src/pages/register.page';
+import { LoginPage } from '../../src/pages/login.page';
+import { regularUserData } from '../../src/testdata/user.data';
+import { NavigationPage } from '../../src/pages/navigation.page';
+import { Utility } from '../../src/pages/utility.page';
+import { WelcomePage } from '../../src/pages/welcome.page';
+import { MyProfilePage } from '../../src/pages/profile/myProfile.page';
+import { EditMyProfilePage } from '../../src/pages/profile/editMyProfil.page';
+import { newArticleData } from '../../src/testdata/articles.data';
+import { ArticlesPage } from '../../src/pages/articles/articles.page';
+import { AddArticlesPage } from '../../src/pages/articles/addArticleForm.page';
+import { ArticleProfilPage } from '../../src/pages/articles/articleProfile.page';
 
-test.describe("Articles tests", () => {
+test.describe('Articles tests', () => {
   let registerPage: RegisterPage;
   let loginPage: LoginPage;
   let navigationPage: NavigationPage;
@@ -23,7 +23,6 @@ test.describe("Articles tests", () => {
   let articlesPage: ArticlesPage;
   let addArticlesPage: AddArticlesPage;
   let articleProfilPage: ArticleProfilPage;
-
 
   test.beforeEach(async ({ page }) => {
     registerPage = new RegisterPage(page);
@@ -37,23 +36,25 @@ test.describe("Articles tests", () => {
     addArticlesPage = new AddArticlesPage(page);
     articleProfilPage = new ArticleProfilPage(page);
 
-    const email = `${await utility.generateRandomValue()}${regularUserData.email}`;
+    const email = `${await utility.generateRandomValue()}${
+      regularUserData.email
+    }`;
 
-    await page.goto("/");
+    await page.goto('/');
     await navigationPage.goToLogin();
     await loginPage.login(regularUserData.email, regularUserData.password);
-    await navigationPage.goToArticles()
+    await navigationPage.goToArticles();
   });
 
-  test("Add new Article test", async ({ page }) => {
+  test('Add new Article test', async ({ page }) => {
     // Arrange
     const title = `${newArticleData.title}${await utility.generateRandomValue()}`;
     const expectedAlert = `Article was created`;
     // Act
-    await articlesPage.addArticle()
-    await addArticlesPage.setTitle(title)
-    await addArticlesPage.setBody(newArticleData.body)
-    await addArticlesPage.saveArticle()
+    await articlesPage.addArticle();
+    await addArticlesPage.setTitle(title);
+    await addArticlesPage.setBody(newArticleData.body);
+    await addArticlesPage.saveArticle();
     // Assert
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
     await expect(articleProfilPage.titleValue).toHaveText(title);
