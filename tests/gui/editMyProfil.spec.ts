@@ -1,13 +1,13 @@
 import { test, expect } from "@playwright/test";
-import { RegisterPage } from "../../pages/register.page";
-import { LoginPage } from "../../pages/login.page";
-import { regularUserData } from "../../testdata/user.data";
-import { NavigationPage } from "../../pages/navigation.page";
-import { Utility } from "../../pages/utility.page";
-import { WelcomePage } from "../../pages/welcome.page";
-import { MyProfilePage } from "../../pages/profile/myProfile.page";
-import { EditMyProfilePage } from "../../pages/profile/editMyProfil.page";
-import { editUserData } from "../../testdata/user.data";
+import { RegisterPage } from "../../src/pages/register.page";
+import { LoginPage } from "../../src/pages/login.page";
+import { regularUserData } from "../../src/testdata/user.data";
+import { NavigationPage } from "../../src/pages/navigation.page";
+import { Utility } from "../../src/pages/utility.page";
+import { WelcomePage } from "../../src/pages/welcome.page";
+import { MyProfilePage } from "../../src/pages/profile/myProfile.page";
+import { EditMyProfilePage } from "../../src/pages/profile/editMyProfil.page";
+import { editUserData } from "../../src/testdata/user.data";
 
 test.describe("Edit my profil tests", () => {
   let registerPage: RegisterPage;

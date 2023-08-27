@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
-import { RegisterPage } from "../../pages/register.page";
-import { LoginPage } from "../../pages/login.page";
-import { blankUserData, regularUserData, wrongUserData } from "../../testdata/user.data";
-import { NavigationPage } from "../../pages/navigation.page";
-import { Utility } from "../../pages/utility.page";
+import { RegisterPage } from "../../src/pages/register.page";
+import { LoginPage } from "../../src/pages/login.page";
+import { blankUserData, regularUserData, wrongUserData } from "../../src/testdata/user.data";
+import { NavigationPage } from "../../src/pages/navigation.page";
+import { Utility } from "../../src/pages/utility.page";
 
 test.describe("Registration tests", () => {
   let registerPage: RegisterPage;

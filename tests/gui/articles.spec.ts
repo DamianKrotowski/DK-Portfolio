@@ -1,16 +1,16 @@
 import { test, expect } from "@playwright/test";
-import { RegisterPage } from "../../pages/register.page";
-import { LoginPage } from "../../pages/login.page";
-import { regularUserData } from "../../testdata/user.data";
-import { NavigationPage } from "../../pages/navigation.page";
-import { Utility } from "../../pages/utility.page";
-import { WelcomePage } from "../../pages/welcome.page";
-import { MyProfilePage } from "../../pages/profile/myProfile.page";
-import { EditMyProfilePage } from "../../pages/profile/editMyProfil.page";
-import { newArticleData } from "../../testdata/articles.data";
-import { ArticlesPage } from "../../pages/articles/articles.page";
-import { AddArticlesPage } from "../../pages/articles/addArticleForm.page";
-import { ArticleProfilPage } from "../../pages/articles/articleProfile.page";
+import { RegisterPage } from "../../src/pages/register.page";
+import { LoginPage } from "../../src/pages/login.page";
+import { regularUserData } from "../../src/testdata/user.data";
+import { NavigationPage } from "../../src/pages/navigation.page";
+import { Utility } from "../../src/pages/utility.page";
+import { WelcomePage } from "../../src/pages/welcome.page";
+import { MyProfilePage } from "../../src/pages/profile/myProfile.page";
+import { EditMyProfilePage } from "../../src/pages/profile/editMyProfil.page";
+import { newArticleData } from "../../src/testdata/articles.data";
+import { ArticlesPage } from "../../src/pages/articles/articles.page";
+import { AddArticlesPage } from "../../src/pages/articles/addArticleForm.page";
+import { ArticleProfilPage } from "../../src/pages/articles/articleProfile.page";
 
 test.describe("Articles tests", () => {
   let registerPage: RegisterPage;
