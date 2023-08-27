@@ -10,9 +10,10 @@ require('dotenv').config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  timeout: 60000,
+  globalSetup: 'src/global-setup.ts',
   testDir: './tests/gui',
-   
+  timeout: 60_000,
+  expect: { timeout: 10_000 },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -27,10 +28,11 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://groovy-chartreuse-ocelot.glitch.me/',
-
+    actionTimeout: 0,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    video: 'on',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
 
   /* Configure projects for major browsers */

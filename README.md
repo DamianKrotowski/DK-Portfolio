@@ -7,11 +7,9 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 'node -v'
 - record tests for given site:
 'npx playwright codegen https://groovy-chartreuse-ocelot.glitch.me'
-- run tests without browser GUI:
-'npx playwright test'
 - run tests with browser GUI:
 'npx playwright test --headed'
-- Scripts
+### Scripts
 - run tests without browser GUI:
 'npm run tests:gui'
 - run api tests:
@@ -25,7 +23,7 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 - update browsers:
 'npx playwright install'
 - verify Playwright version:
-'npx @playwright/test --verson'
+'npx @playwright/test --version'
 
 ## Playwright Config Modifications
 
@@ -44,6 +42,5 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
     - and set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
 
 ### Dotenv
-
-- install Dotenv
+- install Dotenv: 
 'npm i -D dotenv'
