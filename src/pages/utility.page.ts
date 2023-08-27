@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { v4 as uuidv4 } from "uuid";
 
 export class Utility {
   constructor(private page: Page) {}
@@ -10,7 +11,8 @@ export class Utility {
   }
 
   async randomEmail(): Promise<string> {
-    const randomValue = await this.generateRandomValue();
-    return `email${randomValue}@gmail.com`;
+    const uniqueId = uuidv4(); // Generate a random UUID
+    const email = `email${uniqueId}@gmail.com`;
+    return email;
   }
 }

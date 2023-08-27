@@ -9,6 +9,7 @@ import { MyProfilePage } from "../../src/pages/profile/myProfile.page";
 import { EditMyProfilePage } from "../../src/pages/profile/editMyProfil.page";
 import { editUserData } from "../../src/testdata/user.data";
 
+
 test.describe("Edit my profil tests", () => {
   let registerPage: RegisterPage;
   let loginPage: LoginPage;
@@ -17,7 +18,6 @@ test.describe("Edit my profil tests", () => {
   let myProfilePage: MyProfilePage;
   let editMyProfilePage: EditMyProfilePage;
   let utility: Utility;
-
 
   test.beforeEach(async ({ page }) => {
     registerPage = new RegisterPage(page);
@@ -28,7 +28,7 @@ test.describe("Edit my profil tests", () => {
     editMyProfilePage = new EditMyProfilePage(page);
     utility = new Utility(page);
 
-    const email = `${await utility.generateRandomValue()}${regularUserData.email}`;
+    const email = await utility.randomEmail()
 
     await page.goto("/");
     await navigationPage.goToRegister();
@@ -40,7 +40,6 @@ test.describe("Edit my profil tests", () => {
       regularUserData.password
     );
     await expect(loginPage.loginButton).toBeVisible({timeout: 30000});
-
     await loginPage.login(email, regularUserData.password);
     await expect(welcomePage.myProfilButton).toBeVisible();
     await welcomePage.goToMyProfil()
@@ -50,7 +49,7 @@ test.describe("Edit my profil tests", () => {
 
   test("Successfully edited full profile with re-login with new details", async ({ page }) => {
     // Arrange
-    const editedEmail = `${await utility.generateRandomValue()}${regularUserData.email}`;
+    const editedEmail = await utility.randomEmail()    
     // Act
     await editMyProfilePage.setFirstName(editUserData.firstName) // Edit data
     await editMyProfilePage.setLastName(editUserData.lastName)

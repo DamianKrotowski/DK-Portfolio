@@ -3,7 +3,6 @@ import { RegisterPage } from "../../src/pages/register.page";
 import { LoginPage } from "../../src/pages/login.page";
 import { blankUserData, regularUserData, wrongUserData } from "../../src/testdata/user.data";
 import { NavigationPage } from "../../src/pages/navigation.page";
-import { Utility } from "../../src/pages/utility.page";
 import { WelcomePage } from "../../src/pages/welcome.page";
 
 test.describe("Login tests", () => {
@@ -11,12 +10,10 @@ test.describe("Login tests", () => {
   let loginPage: LoginPage;
   let navigationPage: NavigationPage;
 
-
   test.beforeEach(async ({ page }) => {
     registerPage = new RegisterPage(page);
     navigationPage = new NavigationPage(page);
     loginPage = new LoginPage(page);
-
 
     await page.goto("/");
     await navigationPage.goToLogin();

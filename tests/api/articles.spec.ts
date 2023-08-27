@@ -1,11 +1,9 @@
 import { test, expect } from "@playwright/test";
-import { v4 as uuidv4 } from "uuid";
 import { articleUserData, regularUserData } from "../../src/testdata/user.data";
 import { newArticleData, upadtedArticleData } from "../../src/testdata/articles.data";
 
 test.describe("API Testing - CRUD Articles", () => {
   const baseUrl = "https://groovy-chartreuse-ocelot.glitch.me/api";
-  const uniqueId = uuidv4(); // Generate a random UUID
   let articleId: string;
   let token: string;
 
