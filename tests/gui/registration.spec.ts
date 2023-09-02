@@ -1,7 +1,11 @@
 import { test, expect } from '@playwright/test';
 import { RegisterPage } from '../../src/pages/register.page';
-import {blankUserData,regularUserData,wrongUserData} from '../../src/testdata/user.data';
-import { NavigationPage } from '../../src/pages/navigation.page';
+import {
+  blankUserData,
+  regularUserData,
+  wrongUserData,
+} from '../../src/testdata/user.data';
+import { NavigationPage } from '../../src/components/navbar';
 import { Utility } from '../../src/pages/utility.page';
 
 test.describe('Registration tests', () => {
@@ -21,7 +25,7 @@ test.describe('Registration tests', () => {
   test('successful register minimal required data', async ({ page }) => {
     // Arrange
     const expectedAlert = 'User created';
-    const email = await utility.randomEmail()
+    const email = await utility.randomEmail();
     // Act
     await registerPage.register(
       regularUserData.firstName,
@@ -37,7 +41,7 @@ test.describe('Registration tests', () => {
   test('successful register all data', async ({ page }) => {
     // Arrange
     const expectedAlert = 'User created';
-    const email = await utility.randomEmail()
+    const email = await utility.randomEmail();
     // Act
     await registerPage.register(
       regularUserData.firstName,
@@ -68,7 +72,9 @@ test.describe('Registration tests', () => {
     await expect(registerPage.passwordErrorMsg).toHaveText(expectedErrorMsg);
   });
 
-  test('Unsuccessful register with unvalid birth and email data format', async ({page}) => {
+  test('Unsuccessful register with unvalid birth and email data format', async ({
+    page,
+  }) => {
     // Arrange
     const expectedEmailErrorMsg = 'Please provide a valid email address';
     const expectedBirthErrorMsg = 'Date must be in format YYYY-MM-DD';
