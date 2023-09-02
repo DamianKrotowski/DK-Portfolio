@@ -6,9 +6,7 @@ export class NavigationPage {
   userIconButton = this.page.getByTestId('btn-dropdown');
   registerButton = this.page.getByRole('link', { name: 'Register' });
   loginButton = this.page.getByRole('link', { name: 'Login' });
-  logoutButton = this.page
-    .getByTestId('user-dropdown')
-    .getByRole('link', { name: 'Logout' });
+  logoutButton = this.page.getByTestId('user-dropdown').getByRole('link', { name: 'Logout' });
   articlesButton = this.page.getByTestId('open-articles');
   commentsButton = this.page.getByTestId('open-comments');
   usersButton = this.page.getByTestId('open-users');
@@ -43,5 +41,37 @@ export class NavigationPage {
 
   async goToStatistics(): Promise<void> {
     await this.statisticsButton.click();
+  }
+
+  async clickOnTab(tabName): Promise<void> {
+    switch (tabName) {
+      case 'Statistics':
+        await this.statisticsButton.click();
+        break;
+      case 'Users':
+        await this.usersButton.click();
+        break;
+      case 'Comments':
+        await this.commentsButton.click();
+        break;
+      case 'Articles':
+        await this.articlesButton.click();
+        break;
+      case 'logout':
+        await this.userIconButton.click();
+        await this.logoutButton.click();
+        break;
+      case 'Login':
+        await this.userIconButton.click();
+        await this.loginButton.click();
+        break;
+      case 'Register':
+        await this.userIconButton.click();
+        await this.registerButton.click();
+        break;
+
+      default:
+        throw new Error('This tab does not exist..');
+    }
   }
 }

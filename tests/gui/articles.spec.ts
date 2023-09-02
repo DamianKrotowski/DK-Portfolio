@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../src/pages/login.page';
 import { regularUserData } from '../../src/testdata/user.data';
-import { NavigationPage } from '../../src/pages/navigation.page';
+import { NavigationPage } from '../../src/components/navbar';
 import { Utility } from '../../src/pages/utility.page';
 import { newArticleData } from '../../src/testdata/articles.data';
 import { ArticlesPage } from '../../src/pages/articles/articles.page';
@@ -32,7 +32,9 @@ test.describe('Articles tests', () => {
 
   test('Add new Article test', async ({ page }) => {
     // Arrange
-    const title = `${newArticleData.title}${await utility.generateRandomValue()}`;
+    const title = `${
+      newArticleData.title
+    }${await utility.generateRandomValue()}`;
     const expectedAlert = `Article was created`;
     // Act
     await articlesPage.addArticle();

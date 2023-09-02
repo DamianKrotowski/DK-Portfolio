@@ -6,7 +6,6 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 - (optional) install VSC recommended plugins
 - install dependencies: `npm install`
 - setup Playwright with: `npx playwright install`
-- setup husky with: `npx husky install`
 - prepare local env file: `cp .env-template .env`
 ## Commands
 
