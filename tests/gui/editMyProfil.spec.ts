@@ -1,6 +1,6 @@
-import { regularUserData } from '../../src/testdata/user.data';
-import { editUserData } from '../../src/testdata/user.data';
-import { expect, test } from '../../src/pages/gadPageObjects';
+import { regularUserData } from '@_testdata/user.data';
+import { editUserData } from '@_testdata/user.data';
+import { expect, test } from '@_pages/gadPageObjects';
 
 test.describe('Edit my profile tests', () => {
   test('Successfully edited full profile with re-login with new details', async ({

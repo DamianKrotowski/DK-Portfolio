@@ -1,14 +1,14 @@
 import { test as pomtest } from '@playwright/test';
-import { LoginPage } from './login.page';
-import { NavigationPage } from '../components/navbar';
-import { EditMyProfilePage } from './profile/editMyProfil.page';
-import { MyProfilePage } from './profile/myProfile.page';
-import { RegisterPage } from './register.page';
-import { Utility } from './utility.page';
-import { WelcomePage } from './welcome.page';
-import { AddArticlesPage } from './articles/addArticleForm.page';
-import { ArticleProfilePage } from './articles/articleProfile.page';
-import { ArticlesPage } from './articles/articles.page';
+import { LoginPage } from '@_pages/login.page';
+import { NavigationPage } from '@_components/navbar';
+import { EditMyProfilePage } from '@_pages/profile/editMyProfil.page';
+import { MyProfilePage } from '@_pages/profile/myProfile.page';
+import { RegisterPage } from '@_pages/register.page';
+import { Utility } from '@_pages/utility.page';
+import { WelcomePage } from '@_pages/welcome.page';
+import { AddArticlesPage } from '@_pages/articles/addArticleForm.page';
+import { ArticleProfilePage } from '@_pages/articles/articleProfile.page';
+import { ArticlesPage } from '@_pages/articles/articles.page';
 
 type pages = {
   loginPage: LoginPage;

@@ -1,9 +1,9 @@
-import { expect, test } from '../../src/pages/gadPageObjects';
+import { expect, test } from '@_pages/gadPageObjects';
 import {
   blankUserData,
   regularUserData,
   wrongUserData,
-} from '../../src/testdata/user.data';
+} from '@_testdata/user.data';
 
 test.describe('Registration tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {

@@ -1,13 +1,13 @@
-import { test, expect } from "@playwright/test";
-import { articleUserData, regularUserData } from "../../src/testdata/user.data";
-import { newArticleData, upadtedArticleData } from "../../src/testdata/articles.data";
+import { test, expect } from '@playwright/test';
+import { articleUserData, regularUserData } from '@_testdata/user.data';
+import { newArticleData, upadtedArticleData } from '@_testdata/articles.data';
 
-test.describe("API Testing - CRUD Articles", () => {
-  const baseUrl = "https://groovy-chartreuse-ocelot.glitch.me/api";
+test.describe('API Testing - CRUD Articles', () => {
+  const baseUrl = 'https://groovy-chartreuse-ocelot.glitch.me/api';
   let articleId: string;
   let token: string;
 
-  test("POST Request - Login ", async ({ request }) => {
+  test('POST Request - Login ', async ({ request }) => {
     const response = await request.post(`${baseUrl}/login`, {
       data: {
         email: articleUserData.email,
@@ -15,15 +15,15 @@ test.describe("API Testing - CRUD Articles", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    token = responseBody.access_token; 
+    token = responseBody.access_token;
     expect(response.status()).toBe(200);
     expect(responseBody.access_token).toBe(token);
   });
 
-  test("POST Request - Add Article ", async ({ request }) => {
+  test('POST Request - Add Article ', async ({ request }) => {
     const response = await request.post(`${baseUrl}/articles`, {
       headers: {
-        Authorization: `Bearer ${token}`, 
+        Authorization: `Bearer ${token}`,
       },
       data: {
         user_id: 138,
@@ -34,11 +34,11 @@ test.describe("API Testing - CRUD Articles", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    articleId = responseBody.id; 
+    articleId = responseBody.id;
     expect(response.status()).toBe(201);
   });
 
-  test("GET Request - Reading article data", async ({ request }) => {
+  test('GET Request - Reading article data', async ({ request }) => {
     const response = await request.get(`${baseUrl}/articles/${articleId}`);
     const responseBody = JSON.parse(await response.text());
     expect(response.status()).toBe(200);
@@ -48,7 +48,7 @@ test.describe("API Testing - CRUD Articles", () => {
     expect(responseBody.image).toBe(newArticleData.image);
   });
 
-  test("PUT Request - Update article data ", async ({ request }) => {
+  test('PUT Request - Update article data ', async ({ request }) => {
     const response = await request.put(`${baseUrl}/articles/${articleId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -62,14 +62,14 @@ test.describe("API Testing - CRUD Articles", () => {
       },
     });
     const responseBody = JSON.parse(await response.text());
-    expect(responseBody.title).toBe(upadtedArticleData.title)
-    expect(responseBody.body).toBe(upadtedArticleData.body)
-    expect(responseBody.date).toBe(upadtedArticleData.date)
-    expect(responseBody.image).toBe(upadtedArticleData.image)
+    expect(responseBody.title).toBe(upadtedArticleData.title);
+    expect(responseBody.body).toBe(upadtedArticleData.body);
+    expect(responseBody.date).toBe(upadtedArticleData.date);
+    expect(responseBody.image).toBe(upadtedArticleData.image);
     expect(response.status()).toBe(200);
   });
 
-  test("DELETE Request - Delete article", async ({ request }) => {
+  test('DELETE Request - Delete article', async ({ request }) => {
     const response = await request.delete(`${baseUrl}/articles/${articleId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -79,7 +79,7 @@ test.describe("API Testing - CRUD Articles", () => {
     expect(response.status()).toBe(200);
   });
 
-  test("GET Request - Delated article is not found", async ({ request }) => {
+  test('GET Request - Delated article is not found', async ({ request }) => {
     const response = await request.get(`${baseUrl}/articles/${articleId}`);
     expect(response.status()).toBe(404);
   });

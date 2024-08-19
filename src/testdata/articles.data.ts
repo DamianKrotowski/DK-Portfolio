@@ -1,4 +1,4 @@
-import { Utility } from '../pages/utility.page';
+import { Utility } from '@_pages/utility.page';
 
 export const newArticleData = {
   title: 'Title nr:',

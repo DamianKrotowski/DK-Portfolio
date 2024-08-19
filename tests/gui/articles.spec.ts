@@ -1,6 +1,6 @@
-import { regularUserData } from '../../src/testdata/user.data';
-import { newArticleData } from '../../src/testdata/articles.data';
-import { expect, test } from '../../src/pages/gadPageObjects';
+import { regularUserData } from '@_testdata/user.data';
+import { newArticleData } from '@_testdata/articles.data';
+import { expect, test } from '@_pages/gadPageObjects';
 
 test.describe('Articles tests', () => {
   test(
