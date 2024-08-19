@@ -1,5 +1,9 @@
-# Introduction 
+# Introduction
+
 This is a Test Automation project based on 'Playwright' and 'TypeScript'.
+Remember to wake up app.
+
+- go to `https://groovy-chartreuse-ocelot.glitch.me` and wake up app.
 
 ### Installation and setup
 
@@ -7,26 +11,32 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 - install dependencies: `npm install`
 - setup Playwright with: `npx playwright install`
 - prepare local env file: `cp .env-template .env`
+
 ## Commands
 
 - check 'NodeJS' version: `node -v`
 - record tests for given site:
-`npx playwright codegen https://groovy-chartreuse-ocelot.glitch.me`
+  `npx playwright codegen https://groovy-chartreuse-ocelot.glitch.me`
+
 ### Scripts
+
 - run tests without browser GUI:
-`npm run tests:gui`
+  `npm run tests:gui`
 - run api tests:
-`npm run tests:api`
+  `npm run tests:api`
+- run ui mode:
+  `npx playwright test --ui`
 
 ## Updating Playwright
+
 - check if Playwright should be updated:
-`npm outdated @playwright/test`
+  `npm outdated @playwright/test`
 - update Playwright:
-`npm i @playwright/test`
+  `npm i @playwright/test`
 - update browsers:
-`npx playwright install`
+  `npx playwright install`
 - verify Playwright version:
-`npx @playwright/test --version`
+  `npx @playwright/test --version`
 
 ## Playwright Config Modifications
 
@@ -38,12 +48,13 @@ This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 ### Prettier
 
 - install Prettier
-`npm install --save-dev --save-exxact prettier`
+  `npm install --save-dev --save-exxact prettier`
 - run Prettier:
-`npx prettier --write .`
+  `npx prettier --write .`
 - additionaly you can install VSC extension: **Prettier**
-    - and set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
+  - and set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
 
 ### Dotenv
-- install Dotenv: 
-`npm i -D dotenv`
+
+- install Dotenv:
+  `npm i -D dotenv`

@@ -37,11 +37,11 @@ export class EditMyProfilePage {
     await this.passwordInput.fill(password);
   }
 
-  async upadateProfil(): Promise<void> {
+  async updateProfile(): Promise<void> {
     await this.updateButton.click();
   }
 
-  async cancelUpadateProfil(): Promise<void> {
+  async cancelupdateProfile(): Promise<void> {
     await this.cancelButton.click();
   }
 }
