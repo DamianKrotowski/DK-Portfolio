@@ -8,9 +8,9 @@ export class MyProfilePage {
   lastNameValue = this.page.getByTestId('lastname');
   emailValue = this.page.getByTestId('email');
 
-  myProfilButton = this.page.getByRole('button', { name: 'My profile' });
+  myProfileButton = this.page.getByRole('button', { name: 'My profile' });
 
-  async goToEditMyProfil(): Promise<void> {
+  async goToEditMyProfile(): Promise<void> {
     await this.editButton.click();
   }
 }

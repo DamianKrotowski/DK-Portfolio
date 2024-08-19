@@ -4,13 +4,13 @@ export class WelcomePage {
   constructor(private page: Page) {}
 
   logoutButton = this.page.getByTestId('logoutButton');
-  myProfilButton = this.page.getByRole('button', { name: 'My profile' });
+  myProfileButton = this.page.getByRole('button', { name: 'My profile' });
 
   async logoutAfterLogin(): Promise<void> {
     await this.logoutButton.click();
   }
 
-  async goToMyProfil(): Promise<void> {
-    await this.myProfilButton.click();
+  async goToMyProfile(): Promise<void> {
+    await this.myProfileButton.click();
   }
 }

@@ -1,32 +1,23 @@
-import { test, expect } from '@playwright/test';
-import { RegisterPage } from '../../src/pages/register.page';
+import { expect, test } from '../../src/pages/gadPageObjects';
 import {
   blankUserData,
   regularUserData,
   wrongUserData,
 } from '../../src/testdata/user.data';
-import { NavigationPage } from '../../src/components/navbar';
-import { Utility } from '../../src/pages/utility.page';
 
 test.describe('Registration tests', () => {
-  let registerPage: RegisterPage;
-  let navigationPage: NavigationPage;
-  let utility: Utility;
-
-  test.beforeEach(async ({ page }) => {
-    registerPage = new RegisterPage(page);
-    navigationPage = new NavigationPage(page);
-    utility = new Utility(page);
-
+  test.beforeEach(async ({ page, navigationPage }) => {
     await page.goto('/');
     await navigationPage.goToRegister();
   });
 
-  test('successful register minimal required data', async ({ page }) => {
-    // Arrange
+  test('successful register minimal required data', async ({
+    utility,
+    registerPage,
+  }) => {
     const expectedAlert = 'User created';
     const email = await utility.randomEmail();
-    // Act
+
     await registerPage.register(
       regularUserData.firstName,
       regularUserData.lastName,
@@ -34,15 +25,14 @@ test.describe('Registration tests', () => {
       blankUserData.birthDate,
       regularUserData.password,
     );
-    // Assert
+
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
   });
 
-  test('successful register all data', async ({ page }) => {
-    // Arrange
+  test('successful register all data', async ({ utility, registerPage }) => {
     const expectedAlert = 'User created';
     const email = await utility.randomEmail();
-    // Act
+
     await registerPage.register(
       regularUserData.firstName,
       regularUserData.lastName,
@@ -50,14 +40,13 @@ test.describe('Registration tests', () => {
       regularUserData.birthDate,
       regularUserData.password,
     );
-    // Assert
+
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
   });
 
-  test('Unsuccessful register with blank data', async ({ page }) => {
-    // Arrange
+  test('Unsuccessful register with blank data', async ({ registerPage }) => {
     const expectedErrorMsg = 'This field is required';
-    // Act
+
     await registerPage.register(
       blankUserData.firstName,
       blankUserData.lastName,
@@ -65,7 +54,7 @@ test.describe('Registration tests', () => {
       blankUserData.birthDate,
       blankUserData.password,
     );
-    // Assert
+
     await expect(registerPage.firstNameErrorMsg).toHaveText(expectedErrorMsg);
     await expect(registerPage.lastNameErrorMsg).toHaveText(expectedErrorMsg);
     await expect(registerPage.emailErrorMsg).toHaveText(expectedErrorMsg);
@@ -73,12 +62,11 @@ test.describe('Registration tests', () => {
   });
 
   test('Unsuccessful register with unvalid birth and email data format', async ({
-    page,
+    registerPage,
   }) => {
-    // Arrange
     const expectedEmailErrorMsg = 'Please provide a valid email address';
     const expectedBirthErrorMsg = 'Date must be in format YYYY-MM-DD';
-    // Act
+
     await registerPage.register(
       blankUserData.firstName,
       blankUserData.lastName,
@@ -86,7 +74,7 @@ test.describe('Registration tests', () => {
       wrongUserData.birthDate,
       blankUserData.password,
     );
-    // Assert
+
     await expect(registerPage.emailErrorMsg).toHaveText(expectedEmailErrorMsg);
     await expect(registerPage.birthDateErrorMsg).toHaveText(
       expectedBirthErrorMsg,
