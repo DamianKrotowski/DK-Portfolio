@@ -1,5 +1,3 @@
-import { Utility } from '@_pages/utility.page';
-
 export const newArticleData = {
   title: 'Title nr:',
   image: '.\\data\\images\\256\\rory-mckeever-w0kMi0osklU-unsplash.jpg',

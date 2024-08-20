@@ -1,17 +1,27 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class NavigationPage {
-  constructor(private page: Page) {}
-
-  userIconButton = this.page.getByTestId('btn-dropdown');
-  registerButton = this.page.getByRole('link', { name: 'Register' });
-  loginButton = this.page.getByRole('link', { name: 'Login' });
-  logoutButton = this.page.getByTestId('user-dropdown').getByRole('link', { name: 'Logout' });
-  articlesButton = this.page.getByTestId('open-articles');
-  commentsButton = this.page.getByTestId('open-comments');
-  usersButton = this.page.getByTestId('open-users');
-  statisticsButton = this.page.getByTestId('open-stats');
-
+  readonly page: Page;
+  readonly userIconButton: Locator;
+  readonly registerButton: Locator;
+  readonly loginButton: Locator;
+  readonly logoutButton: Locator;
+  readonly commentsButton: Locator;
+  readonly usersButton: Locator;
+  readonly statisticsButton: Locator;
+  readonly articlesButton: Locator;
+  constructor(page: Page) {
+    this.userIconButton = page.getByTestId('btn-dropdown');
+    this.registerButton = page.getByRole('link', { name: 'Register' });
+    this.loginButton = page.getByRole('link', { name: 'Login' });
+    this.logoutButton = page
+      .getByTestId('user-dropdown')
+      .getByRole('link', { name: 'Logout' });
+    this.articlesButton = page.getByTestId('open-articles');
+    this.commentsButton = page.getByTestId('open-comments');
+    this.usersButton = page.getByTestId('open-users');
+    this.statisticsButton = page.getByTestId('open-stats');
+  }
   async goToRegister(): Promise<void> {
     await this.userIconButton.click();
     await this.registerButton.click();
@@ -27,23 +37,7 @@ export class NavigationPage {
     await this.logoutButton.click();
   }
 
-  async goToArticles(): Promise<void> {
-    await this.articlesButton.click();
-  }
-
-  async goToComments(): Promise<void> {
-    await this.commentsButton.click();
-  }
-
-  async goToUsers(): Promise<void> {
-    await this.usersButton.click();
-  }
-
-  async goToStatistics(): Promise<void> {
-    await this.statisticsButton.click();
-  }
-
-  async clickOnTab(tabName): Promise<void> {
+  async clickOnTab(tabName: string): Promise<void> {
     switch (tabName) {
       case 'Statistics':
         await this.statisticsButton.click();

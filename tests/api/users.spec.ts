@@ -4,7 +4,7 @@ import { regularUserData, updatedUserData } from '@_testdata/user.data';
 
 test.describe('API Testing - User CRUD ', () => {
   const baseUrl = 'https://groovy-chartreuse-ocelot.glitch.me/api';
-  const uniqueId = uuidv4(); // Generate a random UUID
+  const uniqueId = uuidv4();
   const email = `email${uniqueId}@gmail.com`;
   let userId: string;
   let token: string;

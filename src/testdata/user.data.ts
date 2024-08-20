@@ -1,6 +1,3 @@
-import { Utility } from '@_pages/utility.page';
-import dotenv from 'dotenv';
-
 export const regularUserData = {
   email: process.env.REGULAR_USER_EMAIL ?? '[NOT SET]',
   password: process.env.REGULAR_USER_PASSWORD ?? '[NOT SET]',

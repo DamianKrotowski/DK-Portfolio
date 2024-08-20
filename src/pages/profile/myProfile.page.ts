@@ -17,7 +17,4 @@ export class MyProfilePage {
     this.firstNameValue = page.getByTestId('firstname');
     this.myProfileButton = page.getByRole('button', { name: 'My profile' });
   }
-  async goToEditMyProfile(): Promise<void> {
-    await this.editButton.click();
-  }
 }
