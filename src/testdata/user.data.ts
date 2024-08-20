@@ -45,8 +45,8 @@ export const editUserData = {
 export const articleUserData = {
   email: 'email72ca4950-ed3a-464c-89dc-0f7aed877690@gmail.com',
   password: 'Hasło1234!@#$',
-  firstname: 'Jan',
-  lastname: 'Kowalski',
+  first_name: 'Jan',
+  last_name: 'Kowalski',
   avatar: '9acce450-ca01-4050-bc4a-19e9b17b4cfa.jpg',
   id: 138,
 };

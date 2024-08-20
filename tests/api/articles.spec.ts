@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { articleUserData, regularUserData } from '@_testdata/user.data';
-import { newArticleData, upadtedArticleData } from '@_testdata/articles.data';
+import { articleUserData } from '@_testdata/user.data';
+import { newArticleData, updatedArticleData } from '@_testdata/articles.data';
 
 test.describe('API Testing - CRUD Articles', () => {
   const baseUrl = 'https://groovy-chartreuse-ocelot.glitch.me/api';
@@ -55,17 +55,17 @@ test.describe('API Testing - CRUD Articles', () => {
       },
       data: {
         user_id: 138,
-        title: upadtedArticleData.title,
-        body: upadtedArticleData.body,
-        date: upadtedArticleData.date,
-        image: upadtedArticleData.image,
+        title: updatedArticleData.title,
+        body: updatedArticleData.body,
+        date: updatedArticleData.date,
+        image: updatedArticleData.image,
       },
     });
     const responseBody = JSON.parse(await response.text());
-    expect(responseBody.title).toBe(upadtedArticleData.title);
-    expect(responseBody.body).toBe(upadtedArticleData.body);
-    expect(responseBody.date).toBe(upadtedArticleData.date);
-    expect(responseBody.image).toBe(upadtedArticleData.image);
+    expect(responseBody.title).toBe(updatedArticleData.title);
+    expect(responseBody.body).toBe(updatedArticleData.body);
+    expect(responseBody.date).toBe(updatedArticleData.date);
+    expect(responseBody.image).toBe(updatedArticleData.image);
     expect(response.status()).toBe(200);
   });
 
@@ -79,7 +79,7 @@ test.describe('API Testing - CRUD Articles', () => {
     expect(response.status()).toBe(200);
   });
 
-  test('GET Request - Delated article is not found', async ({ request }) => {
+  test('GET Request - Deleted article is not found', async ({ request }) => {
     const response = await request.get(`${baseUrl}/articles/${articleId}`);
     expect(response.status()).toBe(404);
   });

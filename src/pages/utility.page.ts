@@ -14,7 +14,7 @@ export class Utility {
   }
 
   async randomEmail(): Promise<string> {
-    const uniqueId = uuidv4(); // Generate a random UUID
+    const uniqueId = uuidv4(); 
     const email = `email${uniqueId}@gmail.com`;
     return email;
   }
