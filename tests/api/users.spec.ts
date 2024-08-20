@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { v4 as uuidv4 } from 'uuid';
-import { Utility } from '@_pages/utility.page';
 import { regularUserData, updatedUserData } from '@_testdata/user.data';
 
 test.describe('API Testing - User CRUD ', () => {

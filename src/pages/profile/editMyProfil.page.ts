@@ -1,18 +1,29 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class EditMyProfilePage {
-  constructor(private page: Page) {}
+  readonly page: Page;
+  readonly firstNameInput: Locator;
+  readonly lastNameInput: Locator;
+  readonly emailInput: Locator;
+  readonly avatarInput: Locator;
+  readonly editPasswordCheckbox: Locator;
+  readonly passwordInput: Locator;
+  readonly updateButton: Locator;
+  readonly passwordErrorMsg: Locator;
+  readonly cancelButton: Locator;
 
-  firstNameInput = this.page.getByTestId('firstname-input');
-  lastNameInput = this.page.getByTestId('lastname-input');
-  emailInput = this.page.getByTestId('email-input');
-  avatarInput = this.page.locator('#container #avatar');
-  editPasswordCheckbox = this.page.locator('#editPassword');
-  passwordInput = this.page.locator('#password');
-  updateButton = this.page.getByTestId('update-user');
-  passwordErrorMsg = this.page.getByText('This field is required');
-  cancelButton = this.page.getByRole('button', { name: 'Cancel' });
-
+  constructor(page: Page) {
+    this.page = page;
+    this.firstNameInput = page.getByTestId('firstname-input');
+    this.lastNameInput = page.getByTestId('lastname-input');
+    this.emailInput = page.getByTestId('email-input');
+    this.avatarInput = page.locator('#container #avatar');
+    this.editPasswordCheckbox = page.locator('#editPassword');
+    this.passwordInput = page.locator('#password');
+    this.updateButton = page.getByTestId('update-user');
+    this.passwordErrorMsg = page.getByText('This field is required');
+    this.cancelButton = page.getByRole('button', { name: 'Cancel' });
+  }
   async setFirstName(firstName: string): Promise<void> {
     await this.firstNameInput.fill(firstName);
   }
@@ -41,7 +52,7 @@ export class EditMyProfilePage {
     await this.updateButton.click();
   }
 
-  async cancelupdateProfile(): Promise<void> {
+  async cancelUpdateProfile(): Promise<void> {
     await this.cancelButton.click();
   }
 }

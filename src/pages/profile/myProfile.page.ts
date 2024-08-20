@@ -1,15 +1,22 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class MyProfilePage {
-  constructor(private page: Page) {}
+  readonly page: Page;
+  readonly editButton: Locator;
+  readonly emailInput: Locator;
+  readonly lastNameValue: Locator;
+  readonly emailValue: Locator;
+  readonly myProfileButton: Locator;
+  readonly firstNameValue: Locator;
 
-  editButton = this.page.locator('.fas.fa-edit.edit');
-  firstNameValue = this.page.getByTestId('firstname');
-  lastNameValue = this.page.getByTestId('lastname');
-  emailValue = this.page.getByTestId('email');
-
-  myProfileButton = this.page.getByRole('button', { name: 'My profile' });
-
+  constructor(page: Page) {
+    this.page = page;
+    this.editButton = page.locator('.fas.fa-edit.edit');
+    this.lastNameValue = page.getByTestId('lastname');
+    this.emailValue = page.getByTestId('email');
+    this.firstNameValue = page.getByTestId('firstname');
+    this.myProfileButton = page.getByRole('button', { name: 'My profile' });
+  }
   async goToEditMyProfile(): Promise<void> {
     await this.editButton.click();
   }

@@ -1,11 +1,15 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class ArticlesPage {
-  constructor(private page: Page) {}
+  readonly page: Page;
+  readonly addArticleButton: Locator;
+  readonly uploadButton: Locator;
 
-  addArticleButton = this.page.getByRole('button', { name: 'Add Article' });
-  uploadButton = this.page.getByRole('button', { name: 'Upload' });
-
+  constructor(page: Page) {
+    this.page = page;
+    this.addArticleButton = page.getByRole('button', { name: 'Add Article' });
+    this.uploadButton = page.getByRole('button', { name: 'Upload' });
+  }
   async addArticle(): Promise<void> {
     await this.addArticleButton.click();
   }

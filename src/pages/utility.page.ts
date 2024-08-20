@@ -1,11 +1,14 @@
-import { Page } from '@playwright/test';
-import { v4 as uuidv4 } from "uuid";
+import { Locator, Page } from '@playwright/test';
+import { v4 as uuidv4 } from 'uuid';
 
 export class Utility {
-  constructor(private page: Page) {}
+  readonly page: Page;
+  readonly alertPopUp: Locator;
 
-  alertPopUp = this.page.getByTestId('alert-popup');
-
+  constructor(page: Page) {
+    this.page = page;
+    this.alertPopUp = page.getByTestId('alert-popup');
+  }
   async generateRandomValue(): Promise<number> {
     return Math.floor(Math.random() * 1000000) + 1;
   }

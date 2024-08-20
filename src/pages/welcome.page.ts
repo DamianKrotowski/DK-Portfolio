@@ -1,11 +1,14 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
 export class WelcomePage {
-  constructor(private page: Page) {}
+  readonly page: Page;
+  readonly logoutButton: Locator;
+  readonly myProfileButton: Locator;
 
-  logoutButton = this.page.getByTestId('logoutButton');
-  myProfileButton = this.page.getByRole('button', { name: 'My profile' });
-
+  constructor(page: Page) {
+    this.logoutButton = page.getByTestId('logoutButton');
+    this.myProfileButton = page.getByRole('button', { name: 'My profile' });
+  }
   async logoutAfterLogin(): Promise<void> {
     await this.logoutButton.click();
   }

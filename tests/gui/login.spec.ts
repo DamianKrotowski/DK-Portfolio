@@ -77,7 +77,7 @@ test.describe('Logout tests', () => {
     await expect(loginPage.loginButton).toBeVisible();
   });
 
-  test('Logout from nagivation panel test', async ({
+  test('Logout from navigation panel test', async ({
     navigationPage,
     loginPage,
   }) => {
