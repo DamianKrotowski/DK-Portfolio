@@ -13,8 +13,8 @@ test.describe('API Testing - User CRUD ', () => {
     const response = await request.post(`${baseUrl}/users`, {
       data: {
         email: email,
-        firstname: regularUserData.firstName,
-        lastname: regularUserData.lastName,
+        first_name: regularUserData.firstName,
+        last_name: regularUserData.lastName,
         password: regularUserData.password,
         avatar: regularUserData.avatar,
       },
@@ -33,8 +33,8 @@ test.describe('API Testing - User CRUD ', () => {
     expect(response.status()).toBe(200);
     const responseBody = JSON.parse(await response.text());
     expect(responseBody.email).toBeTruthy();
-    expect(responseBody.firstname).toBe(regularUserData.firstName);
-    expect(responseBody.lastname).toBeTruthy();
+    expect(responseBody.first_name).toBe(regularUserData.firstName);
+    expect(responseBody.last_name).toBeTruthy();
     expect(responseBody.password).toBeTruthy();
     expect(responseBody.avatar).toBe(regularUserData.avatar);
   });
@@ -59,16 +59,16 @@ test.describe('API Testing - User CRUD ', () => {
       },
       data: {
         email: email,
-        firstname: updatedUserData.firstName,
-        lastname: updatedUserData.lastName,
+        first_name: updatedUserData.firstName,
+        last_name: updatedUserData.lastName,
         password: updatedUserData.password,
         avatar: updatedUserData.avatar,
       },
     });
     const responseBody = JSON.parse(await response.text());
     expect(responseBody.email).toBe(email);
-    expect(responseBody.firstname).toBe(updatedUserData.firstName);
-    expect(responseBody.lastname).toBe(updatedUserData.lastName);
+    expect(responseBody.first_name).toBe(updatedUserData.firstName);
+    expect(responseBody.last_name).toBe(updatedUserData.lastName);
     expect(responseBody.password).toBe(updatedUserData.password);
     expect(responseBody.avatar).toBe(updatedUserData.avatar);
     expect(response.status()).toBe(200);
@@ -83,7 +83,7 @@ test.describe('API Testing - User CRUD ', () => {
     expect(response.status()).toBe(200);
   });
 
-  test('GET Request - Delated user is not found', async ({ request }) => {
+  test('GET Request - Deleted user is not found', async ({ request }) => {
     const response = await request.get(`${baseUrl}/users/${userId}`);
     expect(response.status()).toBe(404);
   });

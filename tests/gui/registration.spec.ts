@@ -61,7 +61,7 @@ test.describe('Registration tests', () => {
     await expect(registerPage.passwordErrorMsg).toHaveText(expectedErrorMsg);
   });
 
-  test('Unsuccessful register with unvalid birth and email data format', async ({
+  test('Unsuccessful register with incorrect birth and email data format', async ({
     registerPage,
   }) => {
     const expectedEmailErrorMsg = 'Please provide a valid email address';
