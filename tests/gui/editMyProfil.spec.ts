@@ -30,16 +30,16 @@ test.describe('Edit my profile tests', () => {
     await loginPage.login(email, regularUserData.password);
     await expect(welcomePage.myProfileButton).toBeVisible();
 
-    await welcomePage.goToMyProfile();
+    await welcomePage.myProfileButton.click();
     await expect(myProfilePage.firstNameValue).toBeVisible();
 
-    await myProfilePage.goToEditMyProfile();
-    await editMyProfilePage.setFirstName(editUserData.firstName);
-    await editMyProfilePage.setLastName(editUserData.lastName);
-    await editMyProfilePage.setEmail(editedEmail);
-    await editMyProfilePage.setChangePassword();
-    await editMyProfilePage.setPassword(editUserData.password);
-    await editMyProfilePage.updateProfile();
+    await myProfilePage.editButton.click();
+    await editMyProfilePage.firstNameInput.fill(editUserData.firstName);
+    await editMyProfilePage.lastNameInput.fill(editUserData.lastName);
+    await editMyProfilePage.emailInput.fill(editedEmail);
+    await editMyProfilePage.editPasswordCheckbox.click();
+    await editMyProfilePage.passwordInput.fill(editUserData.password);
+    await editMyProfilePage.updateButton.click();
     await expect(myProfilePage.firstNameValue).toHaveText(
       editUserData.firstName,
     );

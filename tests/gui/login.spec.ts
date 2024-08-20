@@ -72,7 +72,7 @@ test.describe('Logout tests', () => {
   });
 
   test('Logout after login test', async ({ welcomePage, loginPage }) => {
-    await welcomePage.logoutAfterLogin();
+    await welcomePage.logoutButton.click();
 
     await expect(loginPage.loginButton).toBeVisible();
   });

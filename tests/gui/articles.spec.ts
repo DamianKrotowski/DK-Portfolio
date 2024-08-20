@@ -23,11 +23,11 @@ test.describe('Articles tests', () => {
       await page.goto('/');
       await navigationPage.goToLogin();
       await loginPage.login(regularUserData.email, regularUserData.password);
-      await navigationPage.goToArticles();
-      await articlesPage.addArticle();
-      await addArticlesPage.setTitle(title);
-      await addArticlesPage.setBody(newArticleData.body);
-      await addArticlesPage.saveArticle();
+      await navigationPage.articlesButton.click();
+      await articlesPage.addArticleButton.click();
+      await addArticlesPage.addTitleInput.fill(title);
+      await addArticlesPage.addBodyInput.fill(newArticleData.body);
+      await addArticlesPage.saveButton.click();
 
       await expect(utility.alertPopUp).toHaveText(expectedAlert);
       await expect(articleProfilePage.titleValue).toHaveText(title);

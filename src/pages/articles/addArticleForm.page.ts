@@ -12,15 +12,4 @@ export class AddArticlesPage {
     this.addBodyInput = page.getByTestId('body-text');
     this.saveButton = page.getByTestId('save');
   }
-  async setTitle(title: string): Promise<void> {
-    await this.addTitleInput.fill(title);
-  }
-
-  async setBody(body: string): Promise<void> {
-    await this.addBodyInput.fill(body);
-  }
-
-  async saveArticle(): Promise<void> {
-    await this.saveButton.click();
-  }
 }
