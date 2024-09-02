@@ -1,7 +1,3 @@
-# TO DO
-
-- Zmiana metod, gdy maja jedne zadanie to wyrzucic metody z page'y
-
 # Introduction
 
 This is a Test Automation project based on 'Playwright' and 'TypeScript'.

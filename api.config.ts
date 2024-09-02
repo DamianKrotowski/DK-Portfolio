@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig } from '@playwright/test'
+import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   timeout: 60000,
@@ -26,6 +26,6 @@ const config: PlaywrightTestConfig = {
       use: { browserName: 'webkit' },
     },
   ],
-}
+};
 
-export default config
+export default config;
