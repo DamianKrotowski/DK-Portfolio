@@ -45,16 +45,39 @@ Remember to wake up app.
 - enable video on fail
 - enable Trace Viewer on fail
 
-### Prettier
+## Prettier
 
 - install Prettier
+
   `npm install --save-dev --save-exxact prettier`
+
 - run Prettier:
   `npx prettier --write .`
 - additionaly you can install VSC extension: **Prettier**
   - and set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
 
-### Dotenv
+## ESLint
+
+- install ESLint:
+
+  `npm install eslint@8 --save-dev`
+
+  `npm install @typescript-eslint/eslint-plugin --save-dev`
+
+  `npm install @typescript-eslint/parser --save-dev`
+
+- install package ESLint Playwright:
+  `npm install eslint-plugin-playwright --save-dev`
+
+Install ESLint + Prettier
+
+- resolving conflicts between Prettier and ESLint:
+  `npm install eslint-config-prettier --save-dev`
+
+- running Prettier as a Policy for ESLint:
+  `npm install eslint-plugin-prettier@latest --save-dev`
+
+## Dotenv
 
 - install Dotenv:
   `npm i -D dotenv`
