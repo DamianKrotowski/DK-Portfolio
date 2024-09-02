@@ -6,7 +6,8 @@
   "scripts": {
     "tests:api": "playwright test --config=api.config.ts --project=Chromium",
     "tests:gui": "npx playwright test",
-    "tests:gui:headed": "npx playwright test --headed"
+    "tests:gui:headed": "npx playwright test --headed",
+    "lint": "npx eslint . --ext .ts --max-warnings=0"
   },
   "keywords": [],
   "author": "",
@@ -15,8 +16,14 @@
     "@playwright/test": "^1.46.1",
     "@types/node": "^22.4.1",
     "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
     "dotenv": "^16.3.1",
-    "prettier": "3.0.0"
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^1.6.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.0.0"
   },
   "dependencies": {
     "uuid": "^9.0.0"

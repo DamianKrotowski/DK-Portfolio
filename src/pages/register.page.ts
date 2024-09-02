@@ -1,5 +1,4 @@
 import { Locator, Page } from '@playwright/test';
-import { register } from 'module';
 
 export class RegisterPage {
   readonly page: Page;

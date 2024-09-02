@@ -2,14 +2,14 @@ import { test, expect } from '@playwright/test';
 import { v4 as uuidv4 } from 'uuid';
 import { regularUserData, updatedUserData } from '@_testdata/user.data';
 
-test.describe('API Testing - User CRUD ', () => {
+test.describe('API Testing - User CRUD', () => {
   const baseUrl = 'https://groovy-chartreuse-ocelot.glitch.me/api';
   const uniqueId = uuidv4();
   const email = `email${uniqueId}@gmail.com`;
   let userId: string;
   let token: string;
 
-  test('POST Request - Create user ', async ({ request }) => {
+  test('POST Request - Create user', async ({ request }) => {
     const response = await request.post(`${baseUrl}/users`, {
       data: {
         email: email,
@@ -39,7 +39,7 @@ test.describe('API Testing - User CRUD ', () => {
     expect(responseBody.avatar).toBe(regularUserData.avatar);
   });
 
-  test('POST Request - Login ', async ({ request }) => {
+  test('POST Request - Login', async ({ request }) => {
     const response = await request.post(`${baseUrl}/login`, {
       data: {
         email: email,
@@ -52,7 +52,7 @@ test.describe('API Testing - User CRUD ', () => {
     expect(responseBody.access_token).toBeTruthy();
   });
 
-  test('PUT Request - Create user ', async ({ request }) => {
+  test('PUT Request - Create user', async ({ request }) => {
     const response = await request.put(`${baseUrl}/users/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
