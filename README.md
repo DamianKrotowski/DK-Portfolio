@@ -3,81 +3,84 @@
 This is a Test Automation project based on 'Playwright' and 'TypeScript'.
 Remember to wake up app.
 
-- go to `https://groovy-chartreuse-ocelot.glitch.me` and wake up app.
+- Go to `https://groovy-chartreuse-ocelot.glitch.me` and wake up app.
 
 ### Installation and setup
 
-- (optional) install VSC recommended plugins
-- install dependencies: `npm install`
-- setup Playwright with: `npx playwright install`
-- prepare local env file: `cp .env-template .env`
+- (Optional) install VSC recommended plugins
+- Install dependencies: `npm install`
+- Setup Playwright with: `npx playwright install`
+- Prepare local env file: `cp .env-template .env`
 
 ## Commands
 
-- check 'NodeJS' version: `node -v`
-- record tests for given site:
+- Check 'NodeJS' version: `node -v`
+- Record tests for given site:
   `npx playwright codegen https://groovy-chartreuse-ocelot.glitch.me`
 
 ### Scripts
 
-- run tests without browser GUI:
+- Run tests without browser GUI:
   `npm run tests:gui`
-- run api tests:
+- Run API tests:
   `npm run tests:api`
-- run ui mode:
+- Run UI mode:
   `npx playwright test --ui`
 
 ## Updating Playwright
 
-- check if Playwright should be updated:
+- Check if Playwright should be updated:
   `npm outdated @playwright/test`
-- update Playwright:
+- Update Playwright:
   `npm i @playwright/test`
-- update browsers:
+- Update browsers:
   `npx playwright install`
-- verify Playwright version:
+- Verify Playwright version:
   `npx @playwright/test --version`
 
 ## Playwright Config Modifications
 
-- config file `playwright.config.ts`
-- disable browser, i.e. Firefox
-- enable video on fail
-- enable Trace Viewer on fail
+- Config file `playwright.config.ts`
+- Disable browser, i.e. Firefox
+- Enable video on fail
+- Enable Trace Viewer on fail
 
 ## Prettier
 
-- install Prettier
+- Install Prettier
 
   `npm install --save-dev --save-exxact prettier`
 
-- run Prettier:
+- Run Prettier:
   `npx prettier --write .`
-- additionaly you can install VSC extension: **Prettier**
-  - and set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
+- Additionally you can install VSC extension: **Prettier**
+
+  - And set deflaut VSC formatter as Prettier (right mouse button and 'Format document with ...')
+
+- Install sort imports : `npm install --save-dev @trivago/prettier-plugin-sort-imports`
 
 ## ESLint
 
-- install ESLint:
+- Install ESLint:
 
-  `npm install eslint@8 --save-dev`
+  `npm init @eslint/config@latest`
 
   `npm install @typescript-eslint/eslint-plugin --save-dev`
 
   `npm install @typescript-eslint/parser --save-dev`
 
-- install package ESLint Playwright:
+- Install package ESLint Playwright:
   `npm install eslint-plugin-playwright --save-dev`
 
-Install ESLint + Prettier
+### Install ESLint + Prettier
 
-- resolving conflicts between Prettier and ESLint:
+- Resolving conflicts between Prettier and ESLint:
   `npm install eslint-config-prettier --save-dev`
 
-- running Prettier as a Policy for ESLint:
+- Running Prettier as a Policy for ESLint:
   `npm install eslint-plugin-prettier@latest --save-dev`
 
 ## Dotenv
 
-- install Dotenv:
+- Install Dotenv:
   `npm i -D dotenv`

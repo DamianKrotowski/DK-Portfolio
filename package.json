@@ -7,12 +7,13 @@
     "tests:api": "playwright test --config=api.config.ts --project=Chromium",
     "tests:gui": "npx playwright test",
     "tests:gui:headed": "npx playwright test --headed",
-    "lint": "npx eslint . --ext .ts --max-warnings=0"
+    "lint": "npx eslint . "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@playwright/test": "^1.46.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^22.4.1",
@@ -24,7 +25,9 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-prettier": "^5.2.1",
-    "prettier": "^3.0.0"
+    "globals": "^15.9.0",
+    "prettier": "^3.0.0",
+    "typescript-eslint": "^8.5.0"
   },
   "dependencies": {
     "uuid": "^9.0.0"
