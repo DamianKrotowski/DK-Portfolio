@@ -7,7 +7,7 @@
     "tests:api": "playwright test --config=api.config.ts --project=Chromium",
     "tests:gui": "npx playwright test",
     "tests:gui:headed": "npx playwright test --headed",
-    "lint": "npx eslint . --max-warnings 0"
+    "lint": "npx eslint . --max-warnings=0"
   },
   "keywords": [],
   "author": "",
