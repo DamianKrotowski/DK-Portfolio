@@ -1,5 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["pomtest", "testdata", "uuidv"]
+  "cSpell.words": ["pomtest", "testdata", "uuidv"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  }
 }

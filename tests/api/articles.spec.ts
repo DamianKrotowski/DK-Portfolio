@@ -7,7 +7,7 @@ test.describe('API Testing - CRUD Articles', () => {
   let articleId: string;
   let token: string;
 
-  test('POST Request - Login ', async ({ request }) => {
+  test('POST Request - Login', async ({ request }) => {
     const response = await request.post(`${baseUrl}/login`, {
       data: {
         email: articleUserData.email,
@@ -20,7 +20,7 @@ test.describe('API Testing - CRUD Articles', () => {
     expect(responseBody.access_token).toBe(token);
   });
 
-  test('POST Request - Add Article ', async ({ request }) => {
+  test('POST Request - Add Article', async ({ request }) => {
     const response = await request.post(`${baseUrl}/articles`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ test.describe('API Testing - CRUD Articles', () => {
     expect(responseBody.image).toBe(newArticleData.image);
   });
 
-  test('PUT Request - Update article data ', async ({ request }) => {
+  test('PUT Request - Update article data', async ({ request }) => {
     const response = await request.put(`${baseUrl}/articles/${articleId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -75,7 +75,6 @@ test.describe('API Testing - CRUD Articles', () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    const responseBody = JSON.parse(await response.text());
     expect(response.status()).toBe(200);
   });
 

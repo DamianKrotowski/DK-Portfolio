@@ -39,7 +39,7 @@ test.describe('Login tests', () => {
     );
   });
 
-  test('Unsuccessful login with correct email and wrong password ', async ({
+  test('Unsuccessful login with correct email and wrong password', async ({
     loginPage,
   }) => {
     const expectedLoginError = 'Invalid username or password';
@@ -51,7 +51,7 @@ test.describe('Login tests', () => {
     );
   });
 
-  test('Unsuccessful login with correct password and wrong email ', async ({
+  test('Unsuccessful login with wrong email and password', async ({
     loginPage,
   }) => {
     const expectedLoginError = 'Invalid username or password';
