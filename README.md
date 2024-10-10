@@ -80,6 +80,12 @@ Remember to wake up app.
 - Running Prettier as a Policy for ESLint:
   `npm install eslint-plugin-prettier@latest --save-dev`
 
+### Husky
+
+- Install Husky:
+  `npm install husky --save-dev`
+  `npx husky`
+
 ## Dotenv
 
 - Install Dotenv:
