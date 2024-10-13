@@ -1,9 +1,9 @@
+import { expect, test } from '@_pages/gadPageObjects';
 import {
   blankUserData,
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
-import { expect, test } from '@_pages/gadPageObjects';
 
 test.describe('Login tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
@@ -11,7 +11,7 @@ test.describe('Login tests', () => {
     await navigationPage.goToLogin();
   });
 
-  test('Successful login', async ({ loginPage }) => {
+  test('Successful login', { tag: '@smoke' }, async ({ loginPage }) => {
     await loginPage.login(regularUserData.email, regularUserData.password);
 
     await expect(loginPage.logoutButton).toBeVisible();

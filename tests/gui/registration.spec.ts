@@ -11,23 +11,24 @@ test.describe('Registration tests', () => {
     await navigationPage.goToRegister();
   });
 
-  test('successful register minimal required data', async ({
-    utility,
-    registerPage,
-  }) => {
-    const expectedAlert = 'User created';
-    const email = await utility.randomEmail();
+  test(
+    'successful register minimal required data',
+    { tag: '@smoke' },
+    async ({ utility, registerPage }) => {
+      const expectedAlert = 'User created';
+      const email = await utility.randomEmail();
 
-    await registerPage.register(
-      regularUserData.firstName,
-      regularUserData.lastName,
-      email,
-      blankUserData.birthDate,
-      regularUserData.password,
-    );
+      await registerPage.register(
+        regularUserData.firstName,
+        regularUserData.lastName,
+        email,
+        blankUserData.birthDate,
+        regularUserData.password,
+      );
 
-    await expect(utility.alertPopUp).toHaveText(expectedAlert);
-  });
+      await expect(utility.alertPopUp).toHaveText(expectedAlert);
+    },
+  );
 
   test('successful register all data', async ({ utility, registerPage }) => {
     const expectedAlert = 'User created';
