@@ -1,11 +1,11 @@
-import { regularUserData } from '@_testdata/user.data';
-import { newArticleData } from '@_testdata/articles.data';
 import { expect, test } from '@_pages/gadPageObjects';
+import { newArticleData } from '@_testdata/articles.data';
+import { regularUserData } from '@_testdata/user.data';
 
 test.describe('Articles tests', () => {
   test(
     'Add new Article test',
-    { tag: '@Article' },
+    { tag: '@smoke' },
     async ({
       page,
       loginPage,
