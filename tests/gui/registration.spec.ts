@@ -1,6 +1,7 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import {
   blankUserData,
+  newUserData,
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
@@ -32,14 +33,13 @@ test.describe('Registration tests', () => {
 
   test('successful register all data', async ({ utility, registerPage }) => {
     const expectedAlert = 'User created';
-    const email = await utility.randomEmail();
 
     await registerPage.register(
-      regularUserData.firstName,
-      regularUserData.lastName,
-      email,
-      regularUserData.birthDate,
-      regularUserData.password,
+      newUserData.firstName,
+      newUserData.lastName,
+      newUserData.email,
+      newUserData.birthDate,
+      newUserData.password,
     );
 
     await expect(utility.alertPopUp).toHaveText(expectedAlert);

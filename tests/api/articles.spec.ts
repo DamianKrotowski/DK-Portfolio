@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
-import { articleUserData } from '@_testdata/user.data';
 import { newArticleData, updatedArticleData } from '@_testdata/articles.data';
+import { articleUserData } from '@_testdata/user.data';
+import { expect, test } from '@playwright/test';
 
 test.describe('API Testing - CRUD Articles', () => {
   const baseUrl = 'https://groovy-chartreuse-ocelot.glitch.me/api';

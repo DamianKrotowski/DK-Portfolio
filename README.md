@@ -45,7 +45,8 @@ Remember to wake up app.
 - Enable video on fail
 - Enable Trace Viewer on fail
 
-## Prettier
+## Static analysis
+### Prettier
 
 - Install Prettier
 
@@ -59,7 +60,7 @@ Remember to wake up app.
 
 - Install sort imports : `npm install --save-dev @trivago/prettier-plugin-sort-imports`
 
-## ESLint
+### ESLint
 
 - Install ESLint:
 
