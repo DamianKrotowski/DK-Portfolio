@@ -1,3 +1,17 @@
+import { faker } from '@faker-js/faker/locale/en';
+
+export const newUserData = {
+  email: faker.internet.email({}) ?? '[NOT SET]',
+  password: faker.internet.password() ?? '[NOT SET]',
+  firstName: faker.person.firstName().replace(/[^A-Za-z]/g, ''),
+  lastName: faker.person.lastName().replace(/[^A-Za-z]/g, ''),
+  birthDate: faker.date
+    .between({ from: '1900-01-01', to: '2000-01-01' })
+    .toISOString()
+    .split('T')[0],
+  avatar: '9acce450-ca01-4050-bc4a-19e9b17b4cfa.jpg',
+};
+
 export const regularUserData = {
   email: process.env.REGULAR_USER_EMAIL ?? '[NOT SET]',
   password: process.env.REGULAR_USER_PASSWORD ?? '[NOT SET]',
