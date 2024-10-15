@@ -1,44 +1,84 @@
 import { expect, test } from '@_pages/gadPageObjects';
-import { newArticleData } from '@_testdata/articles.data';
-import { regularUserData } from '@_testdata/user.data';
-import { LoginUser } from 'src/models/user.model';
+import { primaryUserData } from '@_testdata/user.data';
+import { randomNewArticle } from 'src/factories/article.factory';
 
 test.describe('Articles tests', () => {
-  test(
-    'Add new Article test',
-    { tag: '@smoke' },
-    async ({
-      page,
-      loginPage,
-      navigationPage,
-      utility,
-      articlesPage,
-      addArticlesPage,
-      articleProfilePage,
-    }) => {
-      const expectedAlert = `Article was created`;
-      const loginUserData: LoginUser = {
-        userEmail: regularUserData.email,
-        userPassword: regularUserData.password,
-      };
-      const title = `${
-        newArticleData.title
-      }${await utility.generateRandomValue()}`;
+  test.beforeEach(async ({ page, navigationPage, loginPage, articlesPage }) => {
+    await page.goto('/');
+    await navigationPage.goToLogin();
+    await loginPage.login(primaryUserData);
+    await navigationPage.articlesButton.click();
+    await articlesPage.addArticleButton.click();
+  });
 
-      await page.goto('/');
-      await navigationPage.goToLogin();
-      await loginPage.login(loginUserData);
-      await navigationPage.articlesButton.click();
-      await articlesPage.addArticleButton.click();
-      await addArticlesPage.addTitleInput.fill(title);
-      await addArticlesPage.addBodyInput.fill(newArticleData.body);
-      await addArticlesPage.saveButton.click();
+  test(
+    'create new article',
+    { tag: '@smoke' },
+    async ({ utility, addArticlesView, articleProfilePage }) => {
+      const expectedAlert = `Article was created`;
+      const articleData = randomNewArticle();
+
+      await addArticlesView.createArticle(articleData);
 
       await expect(utility.alertPopUp).toHaveText(expectedAlert);
-      await expect(articleProfilePage.titleValue).toHaveText(title);
-      await expect(articleProfilePage.bodyValue).toHaveText(
-        newArticleData.body,
-      );
+      await expect(articleProfilePage.titleValue).toHaveText(articleData.title);
+      await expect(articleProfilePage.bodyValue).toHaveText(articleData.body, {
+        useInnerText: true,
+      });
     },
   );
+
+  test('reject creating article without title', async ({
+    utility,
+    addArticlesView,
+  }) => {
+    const expectedErrorMessage = `Article was not created`;
+    const articleData = randomNewArticle();
+    articleData.title = '';
+
+    await addArticlesView.createArticle(articleData);
+
+    await expect(utility.alertPopUp).toHaveText(expectedErrorMessage);
+  });
+
+  test('reject creating article without body', async ({
+    utility,
+    addArticlesView,
+  }) => {
+    const expectedErrorMessage = `Article was not created`;
+    const articleData = randomNewArticle();
+    articleData.body = '';
+
+    await addArticlesView.createArticle(articleData);
+
+    await expect(utility.alertPopUp).toHaveText(expectedErrorMessage);
+  });
+
+  test('reject creating article with title exceeding 128 signs', async ({
+    utility,
+    addArticlesView,
+  }) => {
+    const expectedErrorMessage = `Article was not created`;
+    const articleData = randomNewArticle(129);
+
+    await addArticlesView.createArticle(articleData);
+
+    await expect(utility.alertPopUp).toHaveText(expectedErrorMessage);
+  });
+
+  test('user can access single article', async ({
+    articlesPage,
+    addArticlesView,
+    articleProfilePage,
+  }) => {
+    const articleData = randomNewArticle();
+
+    await addArticlesView.createArticle(articleData);
+    await articlesPage.goToArticle(articleData.title);
+
+    await expect(articleProfilePage.titleValue).toHaveText(articleData.title);
+    await expect(articleProfilePage.bodyValue).toHaveText(articleData.body, {
+      useInnerText: true,
+    });
+  });
 });
