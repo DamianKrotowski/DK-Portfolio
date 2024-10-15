@@ -1,5 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
-import { editUserData, regularUserData } from '@_testdata/user.data';
+import { editUserData } from '@_testdata/user.data';
+import { randomUser } from 'src/factories/user.factory';
 
 test.describe('Edit my profile tests', () => {
   test('Successfully edited full profile with re-login with new details', async ({
@@ -10,23 +11,18 @@ test.describe('Edit my profile tests', () => {
     welcomePage,
     myProfilePage,
     editMyProfilePage,
-    utility,
   }) => {
-    const email = await utility.randomEmail();
-    const editedEmail = await utility.randomEmail();
-
+    const registerUserData = randomUser();
+    const editedEmail = registerUserData.userEmail + 'edited';
     await page.goto('/');
     await navigationPage.goToRegister();
-    await registerPage.register(
-      regularUserData.firstName,
-      regularUserData.lastName,
-      email,
-      regularUserData.birthDate,
-      regularUserData.password,
-    );
+    await registerPage.register(registerUserData);
     await expect(loginPage.loginButton).toBeVisible();
 
-    await loginPage.login(email, regularUserData.password);
+    await loginPage.login({
+      userEmail: registerUserData.userEmail,
+      userPassword: registerUserData.userPassword,
+    });
     await expect(welcomePage.myProfileButton).toBeVisible();
 
     await welcomePage.myProfileButton.click();
@@ -46,7 +42,10 @@ test.describe('Edit my profile tests', () => {
     await expect(myProfilePage.emailValue).toHaveText(editedEmail);
 
     await navigationPage.logout();
-    await loginPage.login(editedEmail, editUserData.password);
+    await loginPage.login({
+      userEmail: editedEmail,
+      userPassword: editUserData.password,
+    });
     await expect(loginPage.logoutButton).toBeVisible();
   });
 });
