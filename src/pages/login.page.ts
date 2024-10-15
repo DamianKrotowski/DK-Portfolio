@@ -17,11 +17,6 @@ export class LoginPage {
     this.logoutButton = page.getByTestId('logoutButton');
     this.loginErrorNotification = page.getByTestId('login-error');
   }
-  // async login(email: string, password: string): Promise<void> {
-  //   await this.emailInput.fill(email);
-  //   await this.passwordInput.fill(password);
-  //   await this.loginButton.click();
-  // }
 
   async login(loginUserData: LoginUser): Promise<void> {
     await this.emailInput.fill(loginUserData.userEmail);

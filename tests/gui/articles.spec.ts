@@ -1,7 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import { newArticleData } from '@_testdata/articles.data';
-import { regularUserData } from '@_testdata/user.data';
-import { LoginUser } from 'src/models/user.model';
+import { primaryUserData } from '@_testdata/user.data';
 
 test.describe('Articles tests', () => {
   test(
@@ -17,17 +16,13 @@ test.describe('Articles tests', () => {
       articleProfilePage,
     }) => {
       const expectedAlert = `Article was created`;
-      const loginUserData: LoginUser = {
-        userEmail: regularUserData.email,
-        userPassword: regularUserData.password,
-      };
       const title = `${
         newArticleData.title
       }${await utility.generateRandomValue()}`;
 
       await page.goto('/');
       await navigationPage.goToLogin();
-      await loginPage.login(loginUserData);
+      await loginPage.login(primaryUserData);
       await navigationPage.articlesButton.click();
       await articlesPage.addArticleButton.click();
       await addArticlesPage.addTitleInput.fill(title);

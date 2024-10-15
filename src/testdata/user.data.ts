@@ -1,3 +1,9 @@
+import { LoginUser } from 'src/models/user.model';
+
+export const primaryUserData: LoginUser = {
+  userEmail: process.env.REGULAR_USER_EMAIL ?? '[NOT SET]',
+  userPassword: process.env.REGULAR_USER_PASSWORD ?? '[NOT SET]',
+};
 export const regularUserData = {
   email: process.env.REGULAR_USER_EMAIL ?? '[NOT SET]',
   password: process.env.REGULAR_USER_PASSWORD ?? '[NOT SET]',

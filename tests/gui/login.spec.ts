@@ -1,6 +1,7 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import {
   blankUserData,
+  primaryUserData,
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
@@ -13,11 +14,7 @@ test.describe('Login tests', () => {
   });
 
   test('Successful login', { tag: '@smoke' }, async ({ loginPage }) => {
-    const loginUserData: LoginUser = {
-      userEmail: regularUserData.email,
-      userPassword: regularUserData.password,
-    };
-    await loginPage.login(loginUserData);
+    await loginPage.login(primaryUserData);
 
     await expect(loginPage.logoutButton).toBeVisible();
   });
@@ -70,11 +67,7 @@ test.describe('Logout tests', () => {
   test.beforeEach(async ({ page, navigationPage, loginPage }) => {
     await page.goto('/');
     await navigationPage.goToLogin();
-    const loginUserData: LoginUser = {
-      userEmail: regularUserData.email,
-      userPassword: regularUserData.password,
-    };
-    await loginPage.login(loginUserData);
+    await loginPage.login(primaryUserData);
   });
 
   test('Logout after login test', async ({ welcomePage, loginPage }) => {
