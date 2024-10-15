@@ -4,6 +4,7 @@ import {
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
+import { LoginUser } from 'src/models/user.model';
 
 test.describe('Login tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
@@ -12,28 +13,23 @@ test.describe('Login tests', () => {
   });
 
   test('Successful login', { tag: '@smoke' }, async ({ loginPage }) => {
-    await loginPage.login(regularUserData.email, regularUserData.password);
+    const loginUserData: LoginUser = {
+      userEmail: regularUserData.email,
+      userPassword: regularUserData.password,
+    };
+    await loginPage.login(loginUserData);
 
     await expect(loginPage.logoutButton).toBeVisible();
   });
 
   test('Unsuccessful login with blank data', async ({ loginPage }) => {
     const expectedLoginError = 'Invalid username or password';
+    const loginUserData: LoginUser = {
+      userEmail: blankUserData.email,
+      userPassword: blankUserData.password,
+    };
 
-    await loginPage.login(blankUserData.email, blankUserData.password);
-
-    await expect(loginPage.loginErrorNotification).toHaveText(
-      expectedLoginError,
-    );
-  });
-
-  test('Unsuccessful login with wrong data email and password', async ({
-    loginPage,
-  }) => {
-    const expectedLoginError = 'Invalid username or password';
-
-    await loginPage.login(wrongUserData.email, wrongUserData.password);
-
+    await loginPage.login(loginUserData);
     await expect(loginPage.loginErrorNotification).toHaveText(
       expectedLoginError,
     );
@@ -43,8 +39,11 @@ test.describe('Login tests', () => {
     loginPage,
   }) => {
     const expectedLoginError = 'Invalid username or password';
-
-    await loginPage.login(regularUserData.email, wrongUserData.password);
+    const loginUserData: LoginUser = {
+      userEmail: regularUserData.email,
+      userPassword: wrongUserData.password,
+    };
+    await loginPage.login(loginUserData);
 
     await expect(loginPage.loginErrorNotification).toHaveText(
       expectedLoginError,
@@ -55,8 +54,11 @@ test.describe('Login tests', () => {
     loginPage,
   }) => {
     const expectedLoginError = 'Invalid username or password';
-
-    await loginPage.login(wrongUserData.email, regularUserData.password);
+    const loginUserData: LoginUser = {
+      userEmail: wrongUserData.email,
+      userPassword: wrongUserData.password,
+    };
+    await loginPage.login(loginUserData);
 
     await expect(loginPage.loginErrorNotification).toHaveText(
       expectedLoginError,
@@ -68,7 +70,11 @@ test.describe('Logout tests', () => {
   test.beforeEach(async ({ page, navigationPage, loginPage }) => {
     await page.goto('/');
     await navigationPage.goToLogin();
-    await loginPage.login(regularUserData.email, regularUserData.password);
+    const loginUserData: LoginUser = {
+      userEmail: regularUserData.email,
+      userPassword: regularUserData.password,
+    };
+    await loginPage.login(loginUserData);
   });
 
   test('Logout after login test', async ({ welcomePage, loginPage }) => {

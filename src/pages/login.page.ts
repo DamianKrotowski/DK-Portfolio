@@ -1,4 +1,5 @@
-import { Page, Locator } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
+import { LoginUser } from 'src/models/user.model';
 
 export class LoginPage {
   readonly page: Page;
@@ -16,9 +17,15 @@ export class LoginPage {
     this.logoutButton = page.getByTestId('logoutButton');
     this.loginErrorNotification = page.getByTestId('login-error');
   }
-  async login(email: string, password: string): Promise<void> {
-    await this.emailInput.fill(email);
-    await this.passwordInput.fill(password);
+  // async login(email: string, password: string): Promise<void> {
+  //   await this.emailInput.fill(email);
+  //   await this.passwordInput.fill(password);
+  //   await this.loginButton.click();
+  // }
+
+  async login(loginUserData: LoginUser): Promise<void> {
+    await this.emailInput.fill(loginUserData.userEmail);
+    await this.passwordInput.fill(loginUserData.userPassword);
     await this.loginButton.click();
   }
 }

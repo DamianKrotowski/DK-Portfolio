@@ -1,10 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
-import {
-  blankUserData,
-  newUserData,
-  regularUserData,
-  wrongUserData,
-} from '@_testdata/user.data';
+import { wrongUserData } from '@_testdata/user.data';
+import { randomUser } from 'src/factories/user.factory';
 
 test.describe('Registration tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
@@ -15,46 +11,40 @@ test.describe('Registration tests', () => {
   test(
     'successful register minimal required data',
     { tag: '@smoke' },
-    async ({ utility, registerPage }) => {
+    async ({ utility, registerPage, loginPage }) => {
       const expectedAlert = 'User created';
-      const email = await utility.randomEmail();
+      const registerUserData = randomUser();
 
-      await registerPage.register(
-        regularUserData.firstName,
-        regularUserData.lastName,
-        email,
-        blankUserData.birthDate,
-        regularUserData.password,
-      );
+      await registerPage.firstNameInput.fill(registerUserData.userFirstName);
+      await registerPage.lastNameInput.fill(registerUserData.userLastName);
+      await registerPage.emailInput.fill(registerUserData.userEmail);
+      await registerPage.passwordInput.fill(registerUserData.userPassword);
+      await registerPage.registerButton.click();
 
       await expect(utility.alertPopUp).toHaveText(expectedAlert);
+      await expect(loginPage.loginButton).toBeVisible();
+
+      await loginPage.login({
+        userEmail: registerUserData.userEmail,
+        userPassword: registerUserData.userPassword,
+      });
+
+      await expect(loginPage.logoutButton).toBeVisible();
     },
   );
 
   test('successful register all data', async ({ utility, registerPage }) => {
     const expectedAlert = 'User created';
+    const registerUserData = randomUser();
 
-    await registerPage.register(
-      newUserData.firstName,
-      newUserData.lastName,
-      newUserData.email,
-      newUserData.birthDate,
-      newUserData.password,
-    );
-
+    await registerPage.register(registerUserData);
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
   });
 
   test('Unsuccessful register with blank data', async ({ registerPage }) => {
     const expectedErrorMsg = 'This field is required';
 
-    await registerPage.register(
-      blankUserData.firstName,
-      blankUserData.lastName,
-      blankUserData.email,
-      blankUserData.birthDate,
-      blankUserData.password,
-    );
+    await registerPage.registerButton.click();
 
     await expect(registerPage.firstNameErrorMsg).toHaveText(expectedErrorMsg);
     await expect(registerPage.lastNameErrorMsg).toHaveText(expectedErrorMsg);
@@ -68,14 +58,11 @@ test.describe('Registration tests', () => {
     const expectedEmailErrorMsg = 'Please provide a valid email address';
     const expectedBirthErrorMsg = 'Date must be in format YYYY-MM-DD';
 
-    await registerPage.register(
-      blankUserData.firstName,
-      blankUserData.lastName,
-      wrongUserData.email,
-      wrongUserData.birthDate,
-      blankUserData.password,
-    );
+    const registerUserData = randomUser();
+    registerUserData.userEmail = wrongUserData.email;
+    registerUserData.userBirthDate = wrongUserData.birthDate;
 
+    await registerPage.register(registerUserData);
     await expect(registerPage.emailErrorMsg).toHaveText(expectedEmailErrorMsg);
     await expect(registerPage.birthDateErrorMsg).toHaveText(
       expectedBirthErrorMsg,
