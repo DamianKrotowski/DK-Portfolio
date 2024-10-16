@@ -1,6 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import { wrongUserData } from '@_testdata/user.data';
-import { randomUser } from 'src/factories/user.factory';
+import { prepareRandomUser } from 'src/factories/user.factory';
 
 test.describe('Registration tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
@@ -13,7 +13,7 @@ test.describe('Registration tests', () => {
     { tag: '@smoke' },
     async ({ utility, registerPage, loginPage }) => {
       const expectedAlert = 'User created';
-      const registerUserData = randomUser();
+      const registerUserData = prepareRandomUser();
 
       await registerPage.firstNameInput.fill(registerUserData.userFirstName);
       await registerPage.lastNameInput.fill(registerUserData.userLastName);
@@ -35,7 +35,7 @@ test.describe('Registration tests', () => {
 
   test('successful register all data', async ({ utility, registerPage }) => {
     const expectedAlert = 'User created';
-    const registerUserData = randomUser();
+    const registerUserData = prepareRandomUser();
 
     await registerPage.register(registerUserData);
     await expect(utility.alertPopUp).toHaveText(expectedAlert);
@@ -58,7 +58,7 @@ test.describe('Registration tests', () => {
     const expectedEmailErrorMsg = 'Please provide a valid email address';
     const expectedBirthErrorMsg = 'Date must be in format YYYY-MM-DD';
 
-    const registerUserData = randomUser();
+    const registerUserData = prepareRandomUser();
     registerUserData.userEmail = wrongUserData.email;
     registerUserData.userBirthDate = wrongUserData.birthDate;
 

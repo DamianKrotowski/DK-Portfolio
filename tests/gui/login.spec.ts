@@ -5,7 +5,7 @@ import {
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
-import { LoginUser } from 'src/models/user.model';
+import { LoginUserModel } from 'src/models/user.model';
 
 test.describe('Login tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
@@ -21,7 +21,7 @@ test.describe('Login tests', () => {
 
   test('Unsuccessful login with blank data', async ({ loginPage }) => {
     const expectedLoginError = 'Invalid username or password';
-    const loginUserData: LoginUser = {
+    const loginUserData: LoginUserModel = {
       userEmail: blankUserData.email,
       userPassword: blankUserData.password,
     };
@@ -36,7 +36,7 @@ test.describe('Login tests', () => {
     loginPage,
   }) => {
     const expectedLoginError = 'Invalid username or password';
-    const loginUserData: LoginUser = {
+    const loginUserData: LoginUserModel = {
       userEmail: regularUserData.email,
       userPassword: wrongUserData.password,
     };
@@ -51,7 +51,7 @@ test.describe('Login tests', () => {
     loginPage,
   }) => {
     const expectedLoginError = 'Invalid username or password';
-    const loginUserData: LoginUser = {
+    const loginUserData: LoginUserModel = {
       userEmail: wrongUserData.email,
       userPassword: wrongUserData.password,
     };

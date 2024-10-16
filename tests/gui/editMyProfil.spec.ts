@@ -1,6 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import { editUserData } from '@_testdata/user.data';
-import { randomUser } from 'src/factories/user.factory';
+import { prepareRandomUser } from 'src/factories/user.factory';
 
 test.describe('Edit my profile tests', () => {
   test('Successfully edited full profile with re-login with new details', async ({
@@ -12,7 +12,7 @@ test.describe('Edit my profile tests', () => {
     myProfilePage,
     editMyProfilePage,
   }) => {
-    const registerUserData = randomUser();
+    const registerUserData = prepareRandomUser();
     const editedEmail = registerUserData.userEmail + 'edited';
     await page.goto('/');
     await navigationPage.goToRegister();
