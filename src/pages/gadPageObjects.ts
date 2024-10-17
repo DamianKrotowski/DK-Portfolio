@@ -9,7 +9,9 @@ import { RegisterPage } from '@_pages/register.page';
 import { Utility } from '@_pages/utility.page';
 import { WelcomePage } from '@_pages/welcome.page';
 import { test as pomtest } from '@playwright/test';
-
+import { AddCommentView } from './articles/addComment.view';
+import { CommentPage } from './articles/comment.page';
+import { EditCommentView } from './articles/editComment.view';
 type pages = {
   loginPage: LoginPage;
   registerPage: RegisterPage;
@@ -20,7 +22,10 @@ type pages = {
   utility: Utility;
   articlesPage: ArticlesPage;
   addArticlesView: AddArticlesView;
+  addCommentView: AddCommentView;
   articleProfilePage: ArticleProfilePage;
+  commentPage: CommentPage;
+  editCommentView: EditCommentView;
 };
 
 const testPages = pomtest.extend<pages>({
@@ -53,6 +58,15 @@ const testPages = pomtest.extend<pages>({
   },
   articleProfilePage: async ({ page }, use) => {
     await use(new ArticleProfilePage(page));
+  },
+  addCommentView: async ({ page }, use) => {
+    await use(new AddCommentView(page));
+  },
+  commentPage: async ({ page }, use) => {
+    await use(new CommentPage(page));
+  },
+  editCommentView: async ({ page }, use) => {
+    await use(new EditCommentView(page));
   },
 });
 

@@ -1,6 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import { primaryUserData } from '@_testdata/user.data';
-import { randomNewArticle } from 'src/factories/article.factory';
+import { prepareRandomNewArticle } from 'src/factories/article.factory';
 
 test.describe('Articles tests', () => {
   test.beforeEach(async ({ page, navigationPage, loginPage, articlesPage }) => {
@@ -16,7 +16,7 @@ test.describe('Articles tests', () => {
     { tag: '@smoke' },
     async ({ utility, addArticlesView, articleProfilePage }) => {
       const expectedAlert = `Article was created`;
-      const articleData = randomNewArticle();
+      const articleData = prepareRandomNewArticle();
 
       await addArticlesView.createArticle(articleData);
 
@@ -33,7 +33,7 @@ test.describe('Articles tests', () => {
     addArticlesView,
   }) => {
     const expectedErrorMessage = `Article was not created`;
-    const articleData = randomNewArticle();
+    const articleData = prepareRandomNewArticle();
     articleData.title = '';
 
     await addArticlesView.createArticle(articleData);
@@ -46,7 +46,7 @@ test.describe('Articles tests', () => {
     addArticlesView,
   }) => {
     const expectedErrorMessage = `Article was not created`;
-    const articleData = randomNewArticle();
+    const articleData = prepareRandomNewArticle();
     articleData.body = '';
 
     await addArticlesView.createArticle(articleData);
@@ -59,7 +59,7 @@ test.describe('Articles tests', () => {
     addArticlesView,
   }) => {
     const expectedErrorMessage = `Article was not created`;
-    const articleData = randomNewArticle(129);
+    const articleData = prepareRandomNewArticle(129);
 
     await addArticlesView.createArticle(articleData);
 
@@ -71,7 +71,7 @@ test.describe('Articles tests', () => {
     addArticlesView,
     articleProfilePage,
   }) => {
-    const articleData = randomNewArticle();
+    const articleData = prepareRandomNewArticle();
 
     await addArticlesView.createArticle(articleData);
     await articlesPage.goToArticle(articleData.title);

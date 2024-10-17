@@ -1,6 +1,6 @@
 import { expect, test } from '@_pages/gadPageObjects';
 import { primaryUserData } from '@_testdata/user.data';
-import { randomNewArticle } from 'src/factories/article.factory';
+import { prepareRandomNewArticle } from 'src/factories/article.factory';
 import { AddArticleModel } from 'src/models/article.model';
 
 test.describe.configure({ mode: 'serial' });
@@ -18,7 +18,7 @@ test.describe('Create, verify and delete article', () => {
     { tag: '@smoke' },
     async ({ utility, addArticlesView, articleProfilePage, articlesPage }) => {
       const expectedAlert = `Article was created`;
-      articleData = randomNewArticle();
+      articleData = prepareRandomNewArticle();
 
       await articlesPage.addArticleButton.click();
       await addArticlesView.createArticle(articleData);
@@ -50,8 +50,7 @@ test.describe('Create, verify and delete article', () => {
     const noResultText = 'No data';
 
     await articlesPage.goToArticle(articleData.title);
-    await articlesPage.deleteArticle();
-    await articleProfilePage.deleteIcon.click();
+    await articleProfilePage.deleteArticle();
     await articlesPage.searchInput.fill(articleData.title);
     await articlesPage.goButton.click();
 

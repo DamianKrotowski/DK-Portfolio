@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { RegisterUser } from 'src/models/user.model';
+import { RegisterUserModel } from 'src/models/user.model';
 
 export class RegisterPage {
   readonly page: Page;
@@ -32,7 +32,7 @@ export class RegisterPage {
       'Date must be in format YYYY-MM-DD',
     );
   }
-  async register(registerUserData: RegisterUser): Promise<void> {
+  async register(registerUserData: RegisterUserModel): Promise<void> {
     await this.firstNameInput.fill(registerUserData.userFirstName);
     await this.lastNameInput.fill(registerUserData.userLastName);
     await this.emailInput.fill(registerUserData.userEmail);

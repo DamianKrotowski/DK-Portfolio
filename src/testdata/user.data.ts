@@ -1,6 +1,6 @@
-import { LoginUser } from 'src/models/user.model';
+import { LoginUserModel } from 'src/models/user.model';
 
-export const primaryUserData: LoginUser = {
+export const primaryUserData: LoginUserModel = {
   userEmail: process.env.REGULAR_USER_EMAIL ?? '[NOT SET]',
   userPassword: process.env.REGULAR_USER_PASSWORD ?? '[NOT SET]',
 };
