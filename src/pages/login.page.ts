@@ -23,4 +23,8 @@ export class LoginPage {
     await this.passwordInput.fill(loginUserData.userPassword);
     await this.loginButton.click();
   }
+
+  async goTo(): Promise<void> {
+    await this.page.goto('/');
+  }
 }

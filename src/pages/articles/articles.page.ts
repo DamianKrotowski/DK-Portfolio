@@ -20,10 +20,4 @@ export class ArticlesPage {
   async goToArticle(title: string): Promise<void> {
     await this.page.getByText(title).click();
   }
-
-  async deleteArticle(): Promise<void> {
-    this.page.on('dialog', async (dialog) => {
-      await dialog.accept();
-    });
-  }
 }

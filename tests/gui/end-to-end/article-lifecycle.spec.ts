@@ -50,8 +50,7 @@ test.describe('Create, verify and delete article', () => {
     const noResultText = 'No data';
 
     await articlesPage.goToArticle(articleData.title);
-    await articlesPage.deleteArticle();
-    await articleProfilePage.deleteIcon.click();
+    await articleProfilePage.deleteArticle();
     await articlesPage.searchInput.fill(articleData.title);
     await articlesPage.goButton.click();
 
