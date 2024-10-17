@@ -1,5 +1,5 @@
+import { AddCommentModel } from '@_models/comment.model';
 import { faker } from '@faker-js/faker/locale/en';
-import { AddCommentModel } from 'src/models/comment.model';
 
 export function prepareRandomNewComment(bodySentences = 5): AddCommentModel {
   const body = faker.lorem.sentences(bodySentences);

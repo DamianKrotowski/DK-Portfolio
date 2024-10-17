@@ -1,3 +1,4 @@
+import { LoginUserModel } from '@_models/user.model';
 import { expect, test } from '@_pages/gadPageObjects';
 import {
   blankUserData,
@@ -5,7 +6,6 @@ import {
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
-import { LoginUserModel } from 'src/models/user.model';
 
 test.describe('Login tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {

@@ -1,4 +1,4 @@
-import { LoginUserModel } from 'src/models/user.model';
+import { LoginUserModel } from '@_models/user.model';
 
 export const primaryUserData: LoginUserModel = {
   userEmail: process.env.REGULAR_USER_EMAIL ?? '[NOT SET]',

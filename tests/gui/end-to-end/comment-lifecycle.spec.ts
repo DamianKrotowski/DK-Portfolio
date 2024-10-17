@@ -1,9 +1,9 @@
+import { prepareRandomNewArticle } from '@_factories/article.factory';
+import { prepareRandomNewComment } from '@_factories/comment.factory';
+import { AddArticleModel } from '@_models/article.model';
 import { test } from '@_pages/gadPageObjects';
 import { primaryUserData } from '@_testdata/user.data';
 import { expect } from '@playwright/test';
-import { prepareRandomNewArticle } from 'src/factories/article.factory';
-import { prepareRandomNewComment } from 'src/factories/comment.factory';
-import { AddArticleModel } from 'src/models/article.model';
 
 test.describe('Create, verify and delete comment', () => {
   let articleData: AddArticleModel;

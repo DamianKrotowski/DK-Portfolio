@@ -1,7 +1,7 @@
+import { prepareRandomNewArticle } from '@_factories/article.factory';
+import { AddArticleModel } from '@_models/article.model';
 import { expect, test } from '@_pages/gadPageObjects';
 import { primaryUserData } from '@_testdata/user.data';
-import { prepareRandomNewArticle } from 'src/factories/article.factory';
-import { AddArticleModel } from 'src/models/article.model';
 
 test.describe.configure({ mode: 'serial' });
 test.describe('Create, verify and delete article', () => {

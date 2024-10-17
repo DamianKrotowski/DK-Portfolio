@@ -1,6 +1,6 @@
+import { prepareRandomNewArticle } from '@_factories/article.factory';
 import { expect, test } from '@_pages/gadPageObjects';
 import { primaryUserData } from '@_testdata/user.data';
-import { prepareRandomNewArticle } from 'src/factories/article.factory';
 
 test.describe('Articles tests', () => {
   test.beforeEach(async ({ page, navigationPage, loginPage, articlesPage }) => {

@@ -10,7 +10,9 @@
       "@_pages/*": ["src/pages/*"],
       "@_testdata/*": ["src/testdata/*"],
       "@_tests/*": ["src/tests/*"],
-      "@_components/*": ["src/components/*"]
+      "@_components/*": ["src/components/*"],
+      "@_models/*": ["src/models/*"],
+      "@_factories/*": ["src/factories/*"]
     }
   }
 }
