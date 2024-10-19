@@ -1,7 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+dotenv.config({ override: true });
+
 export default defineConfig({
   testDir: './tests/gui',
-  globalSetup: require.resolve('./src/global-setup.ts'),
   timeout: 60_000,
   expect: { timeout: 10_000 },
   fullyParallel: true,
