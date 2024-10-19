@@ -1,7 +1,7 @@
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-async function globalSetup(): Promise<void> {
-  dotenv.config({ override: true });
-}
+// async function globalSetup(): Promise<void> {
+//   dotenv.config({ override: true });
+// }
 
-export default globalSetup;
+// export default globalSetup;

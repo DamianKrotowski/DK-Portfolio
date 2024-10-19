@@ -1,5 +1,5 @@
 import { prepareRandomUser } from '@_factories/user.factory';
-import { expect, test } from '@_pages/gadPageObjects';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
 import { editUserData } from '@_testdata/user.data';
 
 test.describe('Edit my profile tests', () => {

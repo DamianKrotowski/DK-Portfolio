@@ -1,5 +1,5 @@
 import { prepareRandomUser } from '@_factories/user.factory';
-import { expect, test } from '@_pages/gadPageObjects';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
 import { wrongUserData } from '@_testdata/user.data';
 
 test.describe('Registration tests', () => {

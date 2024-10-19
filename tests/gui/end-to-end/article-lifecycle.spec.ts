@@ -1,6 +1,6 @@
 import { prepareRandomNewArticle } from '@_factories/article.factory';
 import { AddArticleModel } from '@_models/article.model';
-import { expect, test } from '@_pages/gadPageObjects';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
 import { primaryUserData } from '@_testdata/user.data';
 
 test.describe.configure({ mode: 'serial' });

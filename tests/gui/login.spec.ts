@@ -1,5 +1,5 @@
 import { LoginUserModel } from '@_models/user.model';
-import { expect, test } from '@_pages/gadPageObjects';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
 import {
   blankUserData,
   primaryUserData,
