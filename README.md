@@ -1,3 +1,8 @@
+### TO DO
+
+- Add reports from current PW (playwright info) information from april
+- Add CI/CD
+
 # Introduction
 
 This is a Test Automation project based on 'Playwright' and 'TypeScript'.
@@ -46,6 +51,7 @@ Remember to wake up app.
 - Enable Trace Viewer on fail
 
 ## Static analysis
+
 ### Prettier
 
 - Install Prettier
