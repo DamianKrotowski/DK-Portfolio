@@ -1,5 +1,5 @@
+import { AddArticleModel } from '@_models/article.model';
 import { Locator, Page } from '@playwright/test';
-import { AddArticleModel } from 'src/ui/models/article.model';
 
 export class AddArticlesView {
   readonly page: Page;

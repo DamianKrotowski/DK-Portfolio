@@ -1,6 +1,6 @@
-import { prepareRandomUser } from 'src/ui/factories/user.factory';
-import { expect, test } from 'src/ui/pages/gadPageObjects.fixture';
-import { wrongUserData } from 'src/ui/testdata/user.data';
+import { prepareRandomUser } from '@_factories/user.factory';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { wrongUserData } from '@_testdata/user.data';
 
 test.describe('Registration tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
