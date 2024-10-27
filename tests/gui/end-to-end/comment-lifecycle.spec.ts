@@ -1,9 +1,9 @@
-import { prepareRandomNewArticle } from '@_factories/article.factory';
-import { prepareRandomNewComment } from '@_factories/comment.factory';
-import { AddArticleModel } from '@_models/article.model';
-import { test } from '@_pages/gadPageObjects.fixture';
-import { primaryUserData } from '@_testdata/user.data';
 import { expect } from '@playwright/test';
+import { prepareRandomNewArticle } from 'src/ui/factories/article.factory';
+import { prepareRandomNewComment } from 'src/ui/factories/comment.factory';
+import { AddArticleModel } from 'src/ui/models/article.model';
+import { test } from 'src/ui/pages/gadPageObjects.fixture';
+import { primaryUserData } from 'src/ui/testdata/user.data';
 
 test.describe('Create, verify and delete comment', () => {
   let articleData: AddArticleModel;
