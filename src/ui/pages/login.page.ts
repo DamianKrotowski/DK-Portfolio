@@ -1,5 +1,5 @@
+import { LoginUserModel } from '@_models/user.model';
 import { Locator, Page } from '@playwright/test';
-import { LoginUserModel } from 'src/ui/models/user.model';
 
 export class LoginPage {
   readonly page: Page;

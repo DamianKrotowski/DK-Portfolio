@@ -1,6 +1,6 @@
-import { prepareRandomUser } from 'src/ui/factories/user.factory';
-import { expect, test } from 'src/ui/pages/gadPageObjects.fixture';
-import { editUserData } from 'src/ui/testdata/user.data';
+import { prepareRandomUser } from '@_factories/user.factory';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { editUserData } from '@_testdata/user.data';
 
 test.describe('Edit my profile tests', () => {
   test('Successfully edited full profile with re-login with new details', async ({
