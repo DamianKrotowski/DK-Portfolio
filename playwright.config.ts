@@ -10,7 +10,11 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 1,
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['json', { outputFile: './playwright-report/results.json' }],
+    ['junit', { outputFile: './playwright-report/results.xml' }],
+  ],
   use: {
     baseURL: 'https://groovy-chartreuse-ocelot.glitch.me',
     actionTimeout: 0,
