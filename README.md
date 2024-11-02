@@ -1,7 +1,6 @@
 ### TO DO
 
 - Add reports from current PW (playwright info) information from april
-- Add CI/CD
 
 # Introduction
 
