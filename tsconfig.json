@@ -12,7 +12,8 @@
       "@_tests/*": ["src/tests/*"],
       "@_components/*": ["src/ui/components/*"],
       "@_models/*": ["src/ui/models/*"],
-      "@_factories/*": ["src/ui/factories/*"]
+      "@_factories/*": ["src/ui/factories/*"],
+      "@_api/*": ["src/api/*"]
     }
   }
 }
