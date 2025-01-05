@@ -19,9 +19,14 @@ export class LoginPage {
   }
 
   async login(loginUserData: LoginUserModel): Promise<void> {
-    await this.emailInput.fill(loginUserData.userEmail);
-    await this.passwordInput.fill(loginUserData.userPassword);
-    await this.loginButton.click();
+    try {
+      await this.emailInput.fill(loginUserData.userEmail);
+      await this.passwordInput.fill(loginUserData.userPassword);
+      await this.loginButton.click();
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during login:', error);
+    }
   }
 
   async goTo(): Promise<void> {
