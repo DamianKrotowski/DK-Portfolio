@@ -6,6 +6,7 @@ import { ArticlesPage } from '@_pages/articles/articles.page';
 import { CommentPage } from '@_pages/articles/comment.page';
 import { EditCommentView } from '@_pages/articles/editComment.view';
 import { LoginPage } from '@_pages/login.page';
+import { RandomWeatherV2Page } from '@_pages/practices/randomWetherV2.page';
 import { EditMyProfilePage } from '@_pages/profile/editMyProfil.page';
 import { MyProfilePage } from '@_pages/profile/myProfile.page';
 import { RegisterPage } from '@_pages/register.page';
@@ -26,6 +27,7 @@ type pages = {
   articleProfilePage: ArticleProfilePage;
   commentPage: CommentPage;
   editCommentView: EditCommentView;
+  randomWeatherV2Page: RandomWeatherV2Page;
 };
 
 const testPages = pomtest.extend<pages>({
@@ -67,6 +69,9 @@ const testPages = pomtest.extend<pages>({
   },
   editCommentView: async ({ page }, use) => {
     await use(new EditCommentView(page));
+  },
+  randomWeatherV2Page: async ({ page }, use) => {
+    await use(new RandomWeatherV2Page(page));
   },
 });
 

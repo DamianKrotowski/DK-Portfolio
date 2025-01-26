@@ -1,11 +1,9 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
 test.describe('Abort requests', () => {
-  test('abort all weather data requests', async ({ page }) => {
-    const getWeatherButtonSelector = 'get-weather';
-    const weatherTableSelector = 'results-table';
-    const getWeatherButtonLocator = page.getByTestId(getWeatherButtonSelector);
-    const weatherTableLocator = page.getByTestId(weatherTableSelector);
-
+  test('abort all weather data requests', async ({
+    page,
+    randomWeatherV2Page,
+  }) => {
     await page.goto(
       `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
     );
@@ -17,31 +15,24 @@ test.describe('Abort requests', () => {
       },
     );
 
-    await getWeatherButtonLocator.click();
+    await randomWeatherV2Page.getWeatherButton.click();
 
-    await expect(weatherTableLocator).toBeHidden();
+    await expect(randomWeatherV2Page.ResultTable).toBeHidden();
   });
-  test('abort all images', async ({ page }) => {
-    const getWeatherButtonSelector = 'get-weather';
-    const weatherTableSelector = 'results-table';
-    const getWeatherButtonLocator = page.getByTestId(getWeatherButtonSelector);
-    const weatherTableLocator = page.getByTestId(weatherTableSelector);
-
+  test('abort all images', async ({ page, randomWeatherV2Page }) => {
     await page.route(/(\.png$)|(\.jpg$)/, async (route) => await route.abort());
     await page.goto(
       `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
     );
 
-    await getWeatherButtonLocator.click();
+    await randomWeatherV2Page.getWeatherButton.click();
 
-    await expect(weatherTableLocator).toBeVisible();
+    await expect(randomWeatherV2Page.ResultTable).toBeVisible();
   });
-  test('abort all requests for styles', async ({ page }) => {
-    const getWeatherButtonSelector = 'get-weather';
-    const weatherTableSelector = 'results-table';
-    const getWeatherButtonLocator = page.getByTestId(getWeatherButtonSelector);
-    const weatherTableLocator = page.getByTestId(weatherTableSelector);
-
+  test('abort all requests for styles', async ({
+    page,
+    randomWeatherV2Page,
+  }) => {
     await page.route(/(\.css)/, async (route) => {
       await route.abort();
     });
@@ -49,8 +40,8 @@ test.describe('Abort requests', () => {
       `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
     );
 
-    await getWeatherButtonLocator.click();
+    await randomWeatherV2Page.getWeatherButton.click();
 
-    await expect(weatherTableLocator).toBeVisible();
+    await expect(randomWeatherV2Page.ResultTable).toBeVisible();
   });
 });
