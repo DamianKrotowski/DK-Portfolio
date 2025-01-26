@@ -1,6 +1,7 @@
 ### TO DO
 
-- Add reports from current PW (playwright info) information from april
+- Add reports from current PW / report portal
+- Add Microsoft Playwright Testing for github Action -> https://www.youtube.com/watch?v=W-2KKXEegyM&t=167s
 
 # Introduction
 
