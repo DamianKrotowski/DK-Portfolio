@@ -47,15 +47,9 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
-      - name: Debug directory contents
-        run: |
-          echo "Checking playwright-report directory:"
-          ls -R playwright-report || echo "playwright-report directory not found"
-          echo "Checking test-results directory:"
-          ls -R test-results || echo "test-results directory not found"
       - name: Archive tests results
         if: success() || failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-report
           path: |
