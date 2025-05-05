@@ -9,7 +9,7 @@ import {
 
 test.describe('Login tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
-    await page.goto(`${process.env.BASE_URL}`);
+    await page.goto('/');
     await navigationPage.goToLogin();
   });
 

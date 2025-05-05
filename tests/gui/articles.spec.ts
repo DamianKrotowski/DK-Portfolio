@@ -4,7 +4,7 @@ import { primaryUserData } from '@_testdata/user.data';
 
 test.describe('Articles tests', () => {
   test.beforeEach(async ({ page, navigationPage, loginPage, articlesPage }) => {
-    await page.goto(`${process.env.BASE_URL}`);
+    await page.goto('/');
     await navigationPage.goToLogin();
     await loginPage.login(primaryUserData);
     await navigationPage.articlesButton.click();
