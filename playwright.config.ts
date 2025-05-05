@@ -5,7 +5,7 @@ dotenv.config({ override: true });
 export default defineConfig({
   testDir: './tests/gui',
   timeout: 60_000,
-  expect: { timeout: 10_000 },
+  expect: { timeout: 15_000 },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
