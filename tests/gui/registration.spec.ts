@@ -4,7 +4,7 @@ import { wrongUserData } from '@_testdata/user.data';
 
 test.describe('Registration tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
-    await page.goto('/');
+    await page.goto(`${process.env.BASE_URL}`);
     await navigationPage.goToRegister();
   });
 

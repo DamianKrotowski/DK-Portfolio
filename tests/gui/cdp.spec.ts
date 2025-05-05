@@ -58,5 +58,6 @@ test.describe('CDP communication', () => {
     const metrics = await cdpSession.send('Performance.getMetrics');
     // eslint-disable-next-line no-console
     console.log(metrics.metrics);
+    await page.close();
   });
 });

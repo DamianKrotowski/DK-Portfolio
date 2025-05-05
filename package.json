@@ -9,7 +9,9 @@
     "tests:gui:headed": "npx playwright test --headed",
     "show-report": "npx playwright show-report",
     "lint": "npx eslint . --max-warnings=0",
-    "prepare": "husky"
+    "prepare": "husky",
+    "only-changed": "npx playwright test --only-changed",
+    "ui-mode": "npx playwright test --ui"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +19,7 @@
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@faker-js/faker": "^9.0.3",
-    "@playwright/test": "^1.48.0",
+    "@playwright/test": "^1.52.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^22.4.1",
     "@types/uuid": "^10.0.0",
@@ -34,6 +36,6 @@
     "typescript-eslint": "^8.5.0"
   },
   "dependencies": {
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   }
 }
