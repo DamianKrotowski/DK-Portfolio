@@ -55,6 +55,10 @@ jobs:
           path: |
             playwright-report/**
             test-results/**
+      - name: Debug directory contents
+        run: |
+          ls -R playwright-report || echo "playwright-report directory not found"
+          ls -R test-results || echo "test-results directory not found"
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
