@@ -1,4 +1,4 @@
-name: Playwright all tests 
+name: Playwright UI tests 
 on:
   push:
     branches: [main, master]
