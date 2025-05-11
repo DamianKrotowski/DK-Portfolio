@@ -5,7 +5,7 @@ test.describe('Abort requests', () => {
     randomWeatherV2Page,
   }) => {
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
 
     await page.route(
@@ -14,7 +14,6 @@ test.describe('Abort requests', () => {
         await route.abort();
       },
     );
-
     await randomWeatherV2Page.getWeatherButton.click();
 
     await expect(randomWeatherV2Page.ResultTable).toBeHidden();
@@ -22,9 +21,8 @@ test.describe('Abort requests', () => {
   test('abort all images', async ({ page, randomWeatherV2Page }) => {
     await page.route(/(\.png$)|(\.jpg$)/, async (route) => await route.abort());
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
-
     await randomWeatherV2Page.getWeatherButton.click();
 
     await expect(randomWeatherV2Page.ResultTable).toBeVisible();
@@ -37,9 +35,8 @@ test.describe('Abort requests', () => {
       await route.abort();
     });
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
-
     await randomWeatherV2Page.getWeatherButton.click();
 
     await expect(randomWeatherV2Page.ResultTable).toBeVisible();

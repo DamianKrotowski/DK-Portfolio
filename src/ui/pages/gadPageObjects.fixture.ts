@@ -6,7 +6,10 @@ import { ArticlesPage } from '@_pages/articles/articles.page';
 import { CommentPage } from '@_pages/articles/comment.page';
 import { EditCommentView } from '@_pages/articles/editComment.view';
 import { LoginPage } from '@_pages/login.page';
+import { Iframe1Page } from '@_pages/practices/iframe-1.page';
+import { Iframe4Page } from '@_pages/practices/iframe-4.page';
 import { RandomWeatherV2Page } from '@_pages/practices/randomWetherV2.page';
+import { ShopingCartV1Page } from '@_pages/practices/shopingCartV1.page';
 import { EditMyProfilePage } from '@_pages/profile/editMyProfil.page';
 import { MyProfilePage } from '@_pages/profile/myProfile.page';
 import { RegisterPage } from '@_pages/register.page';
@@ -28,6 +31,9 @@ type pages = {
   commentPage: CommentPage;
   editCommentView: EditCommentView;
   randomWeatherV2Page: RandomWeatherV2Page;
+  iframe1Page: Iframe1Page;
+  iframe4Page: Iframe4Page;
+  shopingCartV1Page: ShopingCartV1Page;
 };
 
 const testPages = pomtest.extend<pages>({
@@ -72,6 +78,15 @@ const testPages = pomtest.extend<pages>({
   },
   randomWeatherV2Page: async ({ page }, use) => {
     await use(new RandomWeatherV2Page(page));
+  },
+  iframe1Page: async ({ page }, use) => {
+    await use(new Iframe1Page(page));
+  },
+  iframe4Page: async ({ page }, use) => {
+    await use(new Iframe4Page(page));
+  },
+  shopingCartV1Page: async ({ page }, use) => {
+    await use(new ShopingCartV1Page(page));
   },
 });
 

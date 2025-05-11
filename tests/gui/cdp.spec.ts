@@ -15,7 +15,7 @@ test.describe('CDP communication', () => {
     );
 
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
     await page.waitForLoadState('domcontentloaded');
     await randomWeatherV2Page.getWeatherButton.click();
@@ -34,7 +34,7 @@ test.describe('CDP communication', () => {
     });
 
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
     await randomWeatherV2Page.getWeatherButton.click();
 
@@ -50,7 +50,7 @@ test.describe('CDP communication', () => {
     await cdpSession.send('Performance.enable');
 
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
     await randomWeatherV2Page.getWeatherButton.click();
 
