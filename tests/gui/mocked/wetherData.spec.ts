@@ -1,59 +1,49 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@_pages/gadPageObjects.fixture';
 test.describe('Test weather data', () => {
-  test('get weather data and present table to user', async ({ page }) => {
-    const getWeatherButtonSelector = 'get-weather';
-    const weatherTableSelector = 'results-table';
-    const getWeatherButtonLocator = page.getByTestId(getWeatherButtonSelector);
-    const weatherTableLocator = page.getByTestId(weatherTableSelector);
-
+  test('get weather data and present table to user', async ({
+    page,
+    randomWeatherV2Page,
+  }) => {
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
+    await randomWeatherV2Page.getWeatherButton.click();
 
-    await getWeatherButtonLocator.click();
-
-    await expect(weatherTableLocator).toBeVisible();
+    await expect(randomWeatherV2Page.ResultTable).toBeVisible();
   });
-  test('weather mean temperature calculation', async ({ page }) => {
-    const getWeatherButtonSelector = 'get-weather';
-    const meanTemperatureSelector = 'dti-meanTemperature';
-    const getWeatherButtonLocator = page.getByTestId(getWeatherButtonSelector);
-    const meanTemperatureLocator = page.getByTestId(meanTemperatureSelector);
+  test('weather mean temperature calculation', async ({
+    page,
+    randomWeatherV2Page,
+  }) => {
     const expectedMeanTemperature = '22.67';
 
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
     await page.route(
-      `${process.env.BASE_URL_MOCKED_TESTS}/api/v1/data/random/weather-simple`,
+      `${process.env.SECONDARDY_URL}/api/v1/data/random/weather-simple`,
       async (route) => {
         await route.fulfill({ json: mockedWeatherApiBaseResponse });
       },
     );
+    await randomWeatherV2Page.getWeatherButton.click();
 
-    await getWeatherButtonLocator.click();
-
-    await expect(meanTemperatureLocator).toHaveText(expectedMeanTemperature);
+    await expect(randomWeatherV2Page.meanTemperatureText).toHaveText(
+      expectedMeanTemperature,
+    );
   });
   test('weather mean temperature calculation with one day from past', async ({
     page,
+    randomWeatherV2Page,
   }) => {
-    const getWeatherButtonSelector = 'get-weather';
-    const meanTemperatureSelector = 'dti-meanTemperature';
-    const getOneDayFromPastSelector = 'get-weather-past-day';
-    const getWeatherButtonLocator = page.getByTestId(getWeatherButtonSelector);
-    const meanTemperatureLocator = page.getByTestId(meanTemperatureSelector);
-    const getOneDayFromPastLocator = page.getByTestId(
-      getOneDayFromPastSelector,
-    );
     const expectedMeanTemperature = '22.67';
     const expectedMeanTemperatureWithOneDayFromPast = '25.50';
 
     await page.goto(
-      `${process.env.BASE_URL_MOCKED_TESTS}/practice/random-weather-v2.html`,
+      `${process.env.SECONDARDY_URL}/practice/random-weather-v2.html`,
     );
     await page.route(
-      `${process.env.BASE_URL_MOCKED_TESTS}/api/v1/data/random/weather-simple`,
+      `${process.env.SECONDARDY_URL}/api/v1/data/random/weather-simple`,
       async (route) => {
         if (route.request().method() === 'POST') {
           await route.fulfill({ json: mockedWeatherApiBaseResponse });
@@ -62,14 +52,15 @@ test.describe('Test weather data', () => {
         }
       },
     );
+    await randomWeatherV2Page.getWeatherButton.click();
 
-    await getWeatherButtonLocator.click();
+    await expect(randomWeatherV2Page.meanTemperatureText).toHaveText(
+      expectedMeanTemperature,
+    );
 
-    await expect(meanTemperatureLocator).toHaveText(expectedMeanTemperature);
+    await randomWeatherV2Page.getOneDayFromPastText.click();
 
-    await getOneDayFromPastLocator.click();
-
-    await expect(meanTemperatureLocator).toHaveText(
+    await expect(randomWeatherV2Page.meanTemperatureText).toHaveText(
       expectedMeanTemperatureWithOneDayFromPast,
     );
   });
