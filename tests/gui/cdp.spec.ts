@@ -1,5 +1,5 @@
-import { expect, test } from '@_pages/gadPageObjects.fixture';
 import { NETWORK_PRESETS } from '@_testdata/networkPreSet.data';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 
 test.describe('CDP communication', () => {
   test(`Emulate network throttle`, async ({
