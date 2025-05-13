@@ -3,7 +3,7 @@ import { getAuthorizationHeader } from '@_api/factories/authorization-header.api
 import { createCommentWithApi } from '@_api/factories/comment-create.api.factory';
 import { prepareCommentPayload } from '@_api/factories/comment-payload.api.factory';
 import { Headers } from '@_api/models/headers.api.model';
-import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 
 test.describe('Verify comments create operations', () => {
   let articleId: number;

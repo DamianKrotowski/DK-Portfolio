@@ -1,6 +1,6 @@
 import { prepareRandomNewArticle } from '@_factories/article.factory';
-import { expect, test } from '@_pages/gadPageObjects.fixture';
 import { primaryUserData } from '@_testdata/user.data';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 
 test.describe('Articles tests', () => {
   test.beforeEach(async ({ page, navigationPage, loginPage, articlesPage }) => {

@@ -1,8 +1,8 @@
 import { prepareArticlePayload } from '@_api/factories/article-payload.api.factory';
 import { ArticlePayload } from '@_api/models/article.api.model';
 import { Headers } from '@_api/models/headers.api.model';
-import { expect } from '@_pages/gadPageObjects.fixture';
 import { APIRequestContext, APIResponse } from '@playwright/test';
+import { expect } from 'src/ui/fixture/gadPageObjects.fixture';
 
 export async function createArticleWithApi(
   request: APIRequestContext,

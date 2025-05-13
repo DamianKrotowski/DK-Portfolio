@@ -1,11 +1,11 @@
 import { LoginUserModel } from '@_models/user.model';
-import { expect, test } from '@_pages/gadPageObjects.fixture';
 import {
   blankUserData,
   primaryUserData,
   regularUserData,
   wrongUserData,
 } from '@_testdata/user.data';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 
 test.describe('Login tests', () => {
   test.beforeEach(async ({ page, navigationPage }) => {
