@@ -1,4 +1,4 @@
-import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 test.describe('Abort requests', () => {
   test('abort all weather data requests', async ({
     page,

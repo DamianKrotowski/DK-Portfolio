@@ -1,4 +1,4 @@
-import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 test.describe('Test iframes', () => {
   test('submit data in iframe', async ({ page, iframe1Page }) => {
     await page.goto(`${process.env.SECONDARDY_URL}/practice/iframe-0.html`);

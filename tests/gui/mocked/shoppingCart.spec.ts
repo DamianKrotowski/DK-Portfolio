@@ -1,4 +1,4 @@
-import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 test.describe('Test Shopping Cart', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(process.env.SECONDARDY_URL);

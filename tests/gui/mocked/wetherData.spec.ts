@@ -1,4 +1,4 @@
-import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 test.describe('Test weather data', () => {
   test('get weather data and present table to user', async ({
     page,

@@ -1,4 +1,4 @@
-import { expect, test } from '@_pages/gadPageObjects.fixture';
+import { expect, test } from 'src/ui/fixture/gadPageObjects.fixture';
 test.describe('Test Weather Data - filter responses by code and text', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto(

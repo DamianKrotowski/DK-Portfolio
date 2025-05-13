@@ -1,8 +1,8 @@
 import { prepareCommentPayload } from '@_api/factories/comment-payload.api.factory';
 import { CommentPayload } from '@_api/models/comment.api.model';
 import { Headers } from '@_api/models/headers.api.model';
-import { expect } from '@_pages/gadPageObjects.fixture';
 import { APIRequestContext, APIResponse } from '@playwright/test';
+import { expect } from 'src/ui/fixture/gadPageObjects.fixture';
 
 export async function createCommentWithApi(
   request: APIRequestContext,
