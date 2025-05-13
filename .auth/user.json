@@ -1,0 +1,75 @@
+{
+  "cookies": [
+    {
+      "name": "firstname",
+      "value": "Damian",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457413,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "username",
+      "value": "email%40gmail.com",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457501,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "email",
+      "value": "email%40gmail.com",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457544,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsQGdtYWlsLmNvbSIsImRhdGEiOiJUQkQiLCJpYXQiOjE3NDcxNjIwMjgsImV4cCI6MTc0NzE2NTYyOH0.w_wJPumd35U68uFLq4acHaDMJuxz4Bv3qlk0food-h8",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457553,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "expires",
+      "value": "1747165628896",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457564,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "id",
+      "value": "11",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457574,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "avatar",
+      "value": ".%5Cdata%5Cusers%5C65ea94cb-ec8c-407e-8a2f-2861c5e057e1.jpg",
+      "domain": "groovy-chartreuse-ocelot.glitch.me",
+      "path": "/",
+      "expires": 1747165630.457583,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

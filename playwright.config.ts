@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
+import * as path from 'path';
 dotenv.config({ override: true });
+
+export const SESSION_PATH = path.join(__dirname, './.auth/user.json');
 
 export default defineConfig({
   testDir: './tests/gui',
